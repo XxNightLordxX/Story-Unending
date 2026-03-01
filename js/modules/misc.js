@@ -27,6 +27,9 @@ window.miscJsLoaded = true;
   if (isNaN(CHAPTER_INTERVAL_MS) || CHAPTER_INTERVAL_MS < 1000) CHAPTER_INTERVAL_MS = 30000;
   if (CHAPTER_INTERVAL_MS > 3600000) CHAPTER_INTERVAL_MS = 30000;
   
+  // Director mode state
+  let directorMode = false;
+  
   // Generation mode configuration
   let generationMode = Storage.getItem('ese_generationMode', 'unlimited');
   

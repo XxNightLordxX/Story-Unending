@@ -7,9 +7,8 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="css/backup.css">
   <link rel="stylesheet" href="css/fuzzy-search.css">
-  <link rel="stylesheet" href="css/screenshot.css">
-  <link rel="stylesheet" href="css/leaderboards.css">
-  <link rel="stylesheet" href="css/social-sharing.css">
+  
+  
 <link rel="stylesheet" href="css/performance-advanced.css">
 <link rel="stylesheet" href="css/ab-testing.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧛</text></svg>">
@@ -66,14 +65,6 @@
               <span class="dropdown-btn-icon">📧</span>
               <div><span class="dropdown-btn-text">Add Email</span><br><span class="dropdown-btn-sub">Enable password reset</span></div>
             </button>
-            <button aria-label="Open Modal" class="dropdown-btn green-btn" onclick="SaveLoadUI.openModal(); UIDropdown.closeDropdown();">
-              <span class="dropdown-btn-icon">💾</span>
-              <div><span class="dropdown-btn-text">Save / Load</span><br><span class="dropdown-btn-sub">Manage game saves</span></div>
-            </button>
-            <button aria-label="Open Modal" class="dropdown-btn blue-btn" onclick="BookmarksUI.openModal(); UIDropdown.closeDropdown();">
-              <span class="dropdown-btn-icon">📚</span>
-              <div><span class="dropdown-btn-text">Bookmarks</span><br><span class="dropdown-btn-sub">Saved chapters</span></div>
-            </button>
             <button aria-label="Open Modal" class="dropdown-btn purple-btn" onclick="SearchUIEnhanced.openModal(); UIDropdown.closeDropdown();">
               <span class="dropdown-btn-icon">🔍</span>
               <div><span class="dropdown-btn-text">Search</span><br><span class="dropdown-btn-sub">Find content</span></div>
@@ -85,22 +76,6 @@
             <button aria-label="Open Modal" class="dropdown-btn green-btn" onclick="BackupUI.openModal(); UIDropdown.closeDropdown();">
               <span class="dropdown-btn-icon">💾</span>
               <div><span class="dropdown-btn-text">Backup</span><br><span class="dropdown-btn-sub">Manage backups</span></div>
-            <button aria-label="Open Modal" class="dropdown-btn blue-btn" onclick="ScreenshotUI.openModal(); UIDropdown.closeDropdown();">
-              <span class="dropdown-btn-icon">&#128247;</span>
-              <div><span class="dropdown-btn-text">Screenshot</span><br><span class="dropdown-btn-sub">Capture screenshots</span></div>
-            </button>
-            <button aria-label="Open Modal" class="dropdown-btn purple-btn" onclick="SocialSharingUI.openModal(); UIDropdown.closeDropdown();">
-              <span class="dropdown-btn-icon">&#128274;</span>
-              <div><span class="dropdown-btn-text">Share</span><br><span class="dropdown-btn-sub">Share achievements</span></div>
-            </button>
-            <button class="dropdown-btn gold-btn" onclick="LeaderboardsUI.openModal(); UIDropdown.closeDropdown();" aria-label="Open social sharing dialog">
-              <span class="dropdown-btn-icon">&#127942;</span>
-              <div><span class="dropdown-btn-text">Leaderboards</span><br><span class="dropdown-btn-sub">View rankings</span></div>
-            </button>
-              <span class="dropdown-btn-icon">&#128274;</span>
-              <div><span class="dropdown-btn-text">Share</span><br><span class="dropdown-btn-sub">Share content</span></div>
-            </button>
-            </button>
             </button>
             <button aria-label="Load Module" class="dropdown-btn" onclick="LazyLoader.loadModule('analytics').then(() => { AnalyticsUI.openModal() }).catch(err => console.error(err))">
               <div class="dropdown-btn-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">📊</div>
@@ -211,25 +186,6 @@
               <button aria-label="Close Dropdown" class="dropdown-btn purple-btn" onclick="toggleStatusScreen(); UIDropdown.closeDropdown();">
                 <span class="dropdown-btn-icon">📊</span>
                 <div><span class="dropdown-btn-text">Full Status Screen</span><br><span class="dropdown-btn-sub">Skills, abilities & stats</span></div>
-              </button>
-            </div>
-          </div>
-
-          <!-- Support -->
-          <div class="dropdown-section">
-            <button aria-label="Button" class="dropdown-btn gold-btn" onclick="toggleSection('supportContent')">
-              <span class="dropdown-btn-icon">💰</span>
-              <div><span class="dropdown-btn-text">Support</span><br><span class="dropdown-btn-sub">Donate & Subscribe</span></div>
-              <span class="dropdown-toggle-icon">▼</span>
-            </button>
-            <div class="dropdown-section-content" id="supportContent">
-              <button aria-label="Open Modal" class="dropdown-btn gold-btn" onclick="UIModals.openModal('donateOverlay'); UIDropdown.closeDropdown();">
-                <span class="dropdown-btn-icon">💰</span>
-                <div><span class="dropdown-btn-text">Donate</span><br><span class="dropdown-btn-sub">Support the story</span></div>
-              </button>
-              <button aria-label="Open Modal" class="dropdown-btn purple-btn" onclick="UIModals.openModal('subscribeOverlay'); UIDropdown.closeDropdown();">
-                <span class="dropdown-btn-icon">⭐</span>
-                <div><span class="dropdown-btn-text">Subscribe</span><br><span class="dropdown-btn-sub">$4.99/mo — Premium</span></div>
               </button>
             </div>
           </div>
@@ -708,99 +664,6 @@
     </div>
   </div>
 
-  <!-- DONATE MODAL -->
-  <div class="modal-overlay" id="donateOverlay">
-    <div class="modal modal-payment">
-      <button aria-label="Close Modal" class="modal-close" onclick="UIModals.closeModal('donateOverlay')">✕</button>
-      <h2>💰 Support the Story</h2>
-      <p class="modal-desc">Help keep the Endless Story Engine running</p>
-      <div id="donateStep1">
-        <div class="donate-amounts">
-          <button aria-label="$3" class="donate-amount-btn" onclick="selectDonation(3)">$3</button>
-          <button aria-label="$5" class="donate-amount-btn" onclick="selectDonation(5)">$5</button>
-          <button aria-label="$10" class="donate-amount-btn" onclick="selectDonation(10)">$10</button>
-          <button aria-label="$25" class="donate-amount-btn" onclick="selectDonation(25)">$25</button>
-          <button aria-label="$50" class="donate-amount-btn" onclick="selectDonation(50)">$50</button>
-          <button aria-label="$100" class="donate-amount-btn" onclick="selectDonation(100)">$100</button>
-        </div>
-        <div class="form-group">
-          <label>Custom Amount ($)</label>
-          <input type="number" id="donateCustom" placeholder="Enter amount" min="1" / aria-label="Enter amount">
-        </div>
-        <div class="form-group">
-          <label>Message <span class="optional">(optional)</span></label>
-          <textarea id="donateMessage" placeholder="Leave a message..." rows="2"></textarea>
-        </div>
-        <button aria-label="Button" class="btn btn-paypal" onclick="openPayPalDonation()" style="width:100%;justify-content:center;">
-          <svg class="paypal-icon" viewBox="0 0 24 24" width="20" height="20"><path fill="#fff" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797H9.603c-.564 0-1.04.408-1.13.964L7.076 21.337z"/><path fill="#fff" d="M18.171 7.394c-.074.44-.16.89-.27 1.345-1.2 5.87-5.347 7.394-9.163 7.394H7.403L5.806 24h2.564a.56.56 0 0 0 .553-.468l.023-.117.437-2.77.028-.152a.56.56 0 0 1 .553-.469h.348c2.254 0 4.02-.916 4.536-3.564.216-1.106.104-2.03-.467-2.678a2.23 2.23 0 0 0-.21-.182z"/></svg>
-          Pay with PayPal →
-        </button>
-        <div class="paypal-divider"><span>or scan QR code</span></div>
-        <div class="paypal-qr-section">
-          <img src="IMG_6653.jpeg" alt="PayPal QR Code - Johnathon Wood" class="paypal-qr-img" />
-          <p class="paypal-qr-label">Scan with PayPal app to pay <strong>Johnathon Wood</strong></p>
-        </div>
-        <div class="paypal-confirm-section" style="display:none;">
-          <p class="paypal-confirm-text">Already paid via PayPal?</p>
-          <button aria-label="✓ I've Completed Payment" class="btn btn-ghost" onclick="confirmDonation()" style="width:100%;justify-content:center;">✓ I've Completed Payment</button>
-        </div>
-      </div>
-      <div id="donateStep3" style="display:none;">
-        <div class="payment-success">
-          <div class="payment-success-icon">✨</div>
-          <h3>Thank You!</h3>
-          <p>Your generous donation helps keep the story alive forever.</p>
-          <button aria-label="Continue Reading" class="btn btn-primary" onclick="closeDonateModal()" style="width:100%;justify-content:center;margin-top:16px;">Continue Reading</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- SUBSCRIBE MODAL -->
-  <div class="modal-overlay" id="subscribeOverlay">
-    <div class="modal modal-payment">
-      <button aria-label="Close Modal" class="modal-close" onclick="UIModals.closeModal('subscribeOverlay')">✕</button>
-      <h2>⭐ Subscribe</h2>
-      <p class="modal-desc">Unlock the premium experience</p>
-      <div id="subStep1">
-        <div class="subscribe-plan">
-          <div class="subscribe-price">$4.99<span>/month</span></div>
-          <div class="subscribe-plan-name">Premium Reader</div>
-        </div>
-        <ul class="subscribe-benefits">
-          <li>Ad-free reading experience</li>
-          <li>Early access to new chapters</li>
-          <li>Exclusive subscriber badge</li>
-          <li>Priority story directive submissions</li>
-          <li>Detailed MC stat analytics</li>
-          <li>Custom reading themes</li>
-        </ul>
-        <button aria-label="Button" class="btn btn-paypal" onclick="openPayPalSubscription()" style="width:100%;justify-content:center;">
-          <svg class="paypal-icon" viewBox="0 0 24 24" width="20" height="20"><path fill="#fff" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797H9.603c-.564 0-1.04.408-1.13.964L7.076 21.337z"/><path fill="#fff" d="M18.171 7.394c-.074.44-.16.89-.27 1.345-1.2 5.87-5.347 7.394-9.163 7.394H7.403L5.806 24h2.564a.56.56 0 0 0 .553-.468l.023-.117.437-2.77.028-.152a.56.56 0 0 1 .553-.469h.348c2.254 0 4.02-.916 4.536-3.564.216-1.106.104-2.03-.467-2.678a2.23 2.23 0 0 0-.21-.182z"/></svg>
-          Subscribe with PayPal — $4.99/mo →
-        </button>
-        <div class="paypal-divider"><span>or scan QR code</span></div>
-        <div class="paypal-qr-section">
-          <img src="IMG_6653.jpeg" alt="PayPal QR Code - Johnathon Wood" class="paypal-qr-img" />
-          <p class="paypal-qr-label">Scan with PayPal app to pay <strong>Johnathon Wood</strong></p>
-          <p class="paypal-qr-note">Send $4.99 and include "Subscribe" in the note</p>
-        </div>
-        <div class="paypal-confirm-section">
-          <p class="paypal-confirm-text">Already paid via PayPal?</p>
-          <button aria-label="✓ I've Completed Payment" class="btn btn-ghost" onclick="confirmSubscription()" style="width:100%;justify-content:center;">✓ I've Completed Payment</button>
-        </div>
-      </div>
-      <div id="subStep3" style="display:none;">
-        <div class="payment-success">
-          <div class="payment-success-icon">⭐</div>
-          <h3>Welcome, Premium Reader!</h3>
-          <p>Your subscription is now active. Enjoy the premium experience.</p>
-          <button aria-label="Continue Reading" class="btn btn-primary" onclick="closeSubModal()" style="width:100%;justify-content:center;margin-top:16px;">Continue Reading</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- SCRIPTS -->
   <script src="backstory-engine.js?v=3"></script>
   <script src="story-engine.js?v=3"></script>
@@ -906,10 +769,7 @@
   <script src="js/modules/fuzzy-search.js?v=3"></script>
   <script src="js/ui/search-ui-enhanced.js?v=3"></script>
   <script src="js/modules/search-suggestions.js?v=3"></script>
-  <script src="js/modules/screenshot-capture.js?v=3"></script>
-  <script src="js/ui/screenshot-ui.js?v=3"></script>
-  <script src="js/modules/social-sharing.js?v=3"></script>
-  <script src="js/ui/social-sharing-ui.js?v=3"></script>
+  
   <script src="js/modules/backup.js?v=3"></script>
   <script src="js/ui/backup-ui.js?v=3"></script>
   <script src="js/modules/performance-advanced.js?v=3"></script>
@@ -927,10 +787,7 @@
       });
     }
   </script>
-  <script src="js/modules/leaderboards.js?v=3"></script>
-  <script src="js/ui/leaderboards-ui.js?v=3"></script>
-  <script src="js/modules/save-load.js?v=3"></script>
-  <script src="js/ui/save-load-ui.js?v=3"></script>
+  
   <script src="js/modules/api.js?v=3"></script>
   <script src="js/modules/branching-narrative.js?v=3"></script>
   <script src="js/modules/dynamic-content.js?v=3"></script>

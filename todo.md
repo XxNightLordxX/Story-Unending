@@ -75,14 +75,15 @@
 - [x] Verified deployment works correctly
 
 ## Phase 12: Merge Story Control and Chapter Generation Speed Logic
-- [ ] Find story control functions (updateGenerationMode, resetStory)
-- [ ] Find chapter generation speed functions (setSpeed, setCustomSpeedScreen, togglePause)
-- [ ] Understand current logic and dependencies
-- [ ] Identify integration points
-- [ ] Create unified StoryGenerationControl module
-- [ ] Merge speed control logic with generation mode logic
-- [ ] Implement pause/resume with mode awareness
-- [ ] Add proper null checks and error handling
-- [ ] Update HTML references to new functions
-- [ ] Test all interactions
-- [ ] Commit and push changes to GitHub
+- [x] Found story control functions (updateGenerationMode, resetStory)
+- [x] Found chapter generation speed functions (setSpeed, setCustomSpeedScreen, togglePause)
+- [x] Understood current logic and dependencies
+- [x] Identified integration points
+- [x] Created unified StoryGenerationControl module
+- [x] Merged speed control logic with generation mode logic
+- [x] Implemented pause/resume with mode awareness
+- [x] Added proper null checks and error handling
+- [x] Updated HTML references to new functions
+- [x] Removed duplicate functions from misc.js
+- [x] Added initialization call in initialization.js
+- [x] Committed and pushed changes to GitHub

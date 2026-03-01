@@ -27,7 +27,7 @@
   // SECURITY: Admin credentials should be set via environment variables in production
   // For development/demo purposes, these defaults exist but should be changed immediately
   const ADMIN_DEFAULT = { 
-    username: Storage.getAdminConfig().username || 'admin', 
+    username: Storage.getAdminConfig().username || 'Admin', 
     password: Storage.getAdminConfig().password || 'admin123', 
     email: Storage.getAdminConfig().email || '', 
     isAdmin: true 
@@ -35,7 +35,7 @@
   const ADMIN_USER = { ...ADMIN_DEFAULT, ...Storage.getAdminUser() };
 
   // Warn if using default credentials
-  if (ADMIN_USER.username === 'admin' && ADMIN_USER.password === 'admin123') {
+  if (ADMIN_USER.username === 'Admin' && ADMIN_USER.password === 'admin123') {
     console.warn('⚠️ SECURITY WARNING: Using default admin credentials. Please change them!');
     console.warn('Set environment variables: ESE_ADMIN_USERNAME, ESE_ADMIN_PASSWORD');
   }

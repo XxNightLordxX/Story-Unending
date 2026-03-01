@@ -19,7 +19,6 @@
   let state = {
     lastChapterRead: 0,
     lastChapterGenerated: 0,
-    readingHistory: [],
     generationHistory: []
   };
 
@@ -48,10 +47,6 @@
   function updateReadingProgress(chapterNum) {
     if (chapterNum > state.lastChapterRead) {
       state.lastChapterRead = chapterNum;
-      state.readingHistory.push({
-        chapterNum,
-        timestamp: new Date().toISOString()
-      });
       saveState();
       
       // Auto-generate chapters if enabled
@@ -100,7 +95,6 @@
       lastChapterGenerated: state.lastChapterGenerated,
       bufferChapters: config.bufferChapters,
       maxAllowedChapter: state.lastChapterRead + config.bufferChapters,
-      readingHistory: [...state.readingHistory],
       generationHistory: [...state.generationHistory]
     };
   }
@@ -120,7 +114,6 @@
     state = {
       lastChapterRead: 0,
       lastChapterGenerated: 0,
-      readingHistory: [],
       generationHistory: []
     };
     saveState();

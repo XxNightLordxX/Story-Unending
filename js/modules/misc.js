@@ -446,7 +446,6 @@ const simulateResetLink = () => {
 
 const resetPassword = () => {
       const newPassword = document.getElementById('resetNewPassword').value;
-      const confirmPassword = document.getElementById('resetConfirmPassword').value;
 
       if (!newPassword || newPassword.length < 4) {
         safeShowNotification('combat-notif', '❌ Error', 'Password must be at least 4 characters.');
@@ -941,9 +940,8 @@ const updateDirectiveList = () => {
     }
 
 const updateAdminCredentials = () => {
-      const newUsername = document.getElementById('adminNewUsername').value.trim();
-      const newPassword = document.getElementById('adminNewPassword').value;
-      const confirmPassword = document.getElementById('adminConfirmPassword').value;
+      const newUsername = document.getElementById('adminUsernameScreen').value.trim();
+      const newPassword = document.getElementById('adminPasswordScreen').value;
 
       // Validate — at least one field must be filled
       if (!newUsername && !newPassword) {
@@ -951,11 +949,6 @@ const updateAdminCredentials = () => {
         return;
       }
 
-      // Validate password match if changing password
-      if (newPassword && newPassword !== confirmPassword) {
-        safeShowNotification('combat-notif', '❌ Error', 'Passwords do not match!');
-        return;
-      }
 
       if (newPassword && newPassword.length < 4) {
         safeShowNotification('combat-notif', '❌ Error', 'Password must be at least 4 characters.');
@@ -984,9 +977,8 @@ const updateAdminCredentials = () => {
       }
 
       // Clear fields
-      document.getElementById('adminNewUsername').value = '';
-      document.getElementById('adminNewPassword').value = '';
-      document.getElementById('adminConfirmPassword').value = '';
+      document.getElementById('adminUsernameScreen').value = '';
+      document.getElementById('adminPasswordScreen').value = '';
 
       // Update display
       updateAdminCredsDisplay();
@@ -1005,14 +997,14 @@ const updateAdminCredsDisplay = () => {
     }
 
 const toggleAdminPwVisibility = () => {
-      const input = document.getElementById('adminNewPassword');
+      const input = document.getElementById('adminPasswordScreen');
       input.type = input.type === 'password' ? 'text' : 'password';
     }
 
 const loadUserList = () => {
       const users = getUsers();
-      const list = document.getElementById('userList');
-      const count = document.getElementById('userCount');
+      const list = document.getElementById('userListScreen');
+      const count = document.getElementById('userCountScreen');
 
       count.textContent = `${users.length} user${users.length !== 1 ? 's' : ''}`;
 
@@ -1040,7 +1032,7 @@ const loadUserList = () => {
     }
 
 const filterUsers = () => {
-      const query = document.getElementById('userSearchInput').value.toLowerCase();
+      const query = document.getElementById('userSearchInputScreen').value.toLowerCase();
       const items = document.querySelectorAll('.user-item');
 
       items.forEach(item => {

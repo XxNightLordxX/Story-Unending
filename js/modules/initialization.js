@@ -35,6 +35,7 @@
       if (typeof StoryEngine !== 'undefined') {
       } else {
         console.warn('✗ StoryEngine not available');
+      \n      // Initialize Story Generation Control\n      if (typeof StoryGenerationControl !== 'undefined' && typeof StoryGenerationControl.initialize === 'function') {\n        StoryGenerationControl.initialize();\n      } else {\n        console.warn('\u2717 StoryGenerationControl not available');\n      }
       }
       
       // Generate initial chapter and start the story

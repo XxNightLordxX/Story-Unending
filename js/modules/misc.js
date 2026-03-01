@@ -736,15 +736,6 @@ const updateStatusScreen = () => {
       }
     }
 
-const setCustomSpeedScreen = () => {
-      const input = document.getElementById('customSpeedInputScreen');
-      const ms = parseInt(input.value) * 1000;
-      if (isNaN(ms) || ms < 1000 || ms > 3600000) {
-        safeShowNotification('combat-notif', '❌ Invalid Speed', 'Enter a value between 1 and 3600 seconds');
-        return;
-      }
-      setSpeed(ms);
-    }
 
 const submitDirectiveScreen = () => {
       const text = document.getElementById('directiveTextScreen').value.trim();
@@ -805,60 +796,8 @@ const getActiveRules = () => {
       return storyRules.filter(r => r.active);
     }
 
-const updateGenerationMode = () => {
-      generationMode = document.getElementById('generationMode').value;
-      Storage.setItem('ese_generationMode', generationMode);
-      updateAdminProgressInfo();
-      safeShowNotification('level-notif', '🎮 Mode Changed', `Generation: ${generationMode === 'unlimited' ? 'Unlimited' : 'Admin Progress'}`);
-    }
 
-const updateAdminProgressInfo = () => {
-      const info = document.getElementById('adminProgressInfo');
-      if (!info) return;
-      if (generationMode === 'admin_progress') {
-        info.style.display = 'block';
-        const adminCh = document.getElementById('adminCurrentChapter');
-        if (adminCh) adminCh.textContent = AppState.currentChapter;
-        const genCount = document.getElementById('generatedChaptersCount');
-        if (genCount) genCount.textContent = AppState.totalGenerated;
-      } else {
-        info.style.display = 'none';
-      }
-    }
 
-const resetStory = () => {
-      if (!confirm('⚠️ Are you sure you want to reset the story to Chapter 1?\n\nThis will:\n• Delete all generated chapters\n• Reset MC stats to level 1\n• Clear all directives\n• Keep story rules intact\n\nThis action cannot be undone!')) {
-        return;
-      }
-      
-      // Reset app state
-      AppState.chapters = [];
-      AppState.currentChapter = 1;
-      AppState.totalGenerated = 0;
-      
-      // Clear generation interval
-      if (AppState.generationInterval) {
-        clearInterval(AppState.generationInterval);
-        AppState.generationInterval = null;
-      }
-      
-      // Reset story engine
-      StoryEngine.reset();
-      
-      // Clear directives
-      Storage.removeItem('ese_directives');
-      
-      // Update UI
-      document.getElementById('storyContainer').innerHTML = '';
-      updateChapterNav();
-      updateStats();
-      updateDirectiveList();
-      
-      // Restart generation
-      catchUpAndStart();
-      
-      safeShowNotification('level-notif', '🔄 Story Reset', 'Story has been reset to Chapter 1!');
-    }
 
 const quickResetStory = () => {
       // Reset app state
@@ -888,38 +827,6 @@ const quickResetStory = () => {
       catchUpAndStart();
     }
 
-const togglePause = () => {
-      AppState.paused = !AppState.paused;
-      const pauseIcon = document.getElementById('pauseIcon');
-      const pauseLabel = document.getElementById('pauseLabel');
-      const pauseBtn = document.getElementById('pauseBtn');
-      const speedDisplay = document.getElementById('speedCurrentDisplay');
-
-      if (AppState.paused) {
-        // Pause — clear interval
-        if (AppState.generationInterval) {
-          clearInterval(AppState.generationInterval);
-          AppState.generationInterval = null;
-        }
-        Storage.setPausedState(true);
-        pauseIcon.textContent = '▶️';
-        pauseLabel.textContent = 'Resume Generation';
-        pauseBtn.classList.add('paused');
-        speedDisplay.innerHTML = '<strong style="color:#f87171;">⏸️ PAUSED</strong>';
-        safeShowNotification('combat-notif', '⏸️ Paused', 'Chapter generation paused.');
-      } else {
-        // Resume — restart interval
-        Storage.setPausedState(false);
-        generateNewChapter(); // Generate one immediately
-        AppState.generationInterval = setInterval(generateNewChapter, CHAPTER_INTERVAL_MS);
-        pauseIcon.textContent = '⏸️';
-        pauseLabel.textContent = 'Pause Generation';
-        pauseBtn.classList.remove('paused');
-        updateSpeedDisplay();
-        document.getElementById('speedCurrentDisplay').innerHTML = `Current: <strong>1 chapter every <span id="speedValueDisplay">${formatSpeed(CHAPTER_INTERVAL_MS)}</span></strong>`;
-        safeShowNotification('level-notif', '▶️ Resumed', `Generating 1 chapter every ${formatSpeed(CHAPTER_INTERVAL_MS)}`);
-      }
-    }
 
 const submitDirective = () => {
       const text = document.getElementById('directiveText').value.trim();
@@ -1197,17 +1104,13 @@ const closeSubModal = () => {
     toggleSection: toggleSection,
     toggleStatusScreen: toggleStatusScreen,
     updateStatusScreen: updateStatusScreen,
-    setCustomSpeedScreen: setCustomSpeedScreen,
     submitDirectiveScreen: submitDirectiveScreen,
     addStoryRule: addStoryRule,
     updateStoryRulesList: updateStoryRulesList,
     removeStoryRule: removeStoryRule,
     getActiveRules: getActiveRules,
-    updateGenerationMode: updateGenerationMode,
     updateAdminProgressInfo: updateAdminProgressInfo,
-    resetStory: resetStory,
     quickResetStory: quickResetStory,
-    togglePause: togglePause,
     submitDirective: submitDirective,
     updateDirectiveList: updateDirectiveList,
     updateAdminCredentials: updateAdminCredentials,
@@ -1261,17 +1164,13 @@ const closeSubModal = () => {
     window.toggleSection = toggleSection;
     window.toggleStatusScreen = toggleStatusScreen;
     window.updateStatusScreen = updateStatusScreen;
-    window.setCustomSpeedScreen = setCustomSpeedScreen;
     window.submitDirectiveScreen = submitDirectiveScreen;
     window.addStoryRule = addStoryRule;
     window.updateStoryRulesList = updateStoryRulesList;
     window.removeStoryRule = removeStoryRule;
     window.getActiveRules = getActiveRules;
-    window.updateGenerationMode = updateGenerationMode;
     window.updateAdminProgressInfo = updateAdminProgressInfo;
-    window.resetStory = resetStory;
     window.quickResetStory = quickResetStory;
-    window.togglePause = togglePause;
     window.submitDirective = submitDirective;
     window.updateDirectiveList = updateDirectiveList;
     window.updateAdminCredentials = updateAdminCredentials;

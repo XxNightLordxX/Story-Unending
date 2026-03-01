@@ -32,7 +32,7 @@
     email: Storage.getAdminConfig().email || '', 
     isAdmin: true 
   };
-  const ADMIN_USER = Storage.getAdminUser() || { ...ADMIN_DEFAULT };
+  const ADMIN_USER = { ...ADMIN_DEFAULT, ...Storage.getAdminUser() };
 
   // Warn if using default credentials
   if (ADMIN_USER.username === 'admin' && ADMIN_USER.password === 'admin123') {

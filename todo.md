@@ -40,3 +40,11 @@
 - `js/modules/misc.js` — `safeShowNotification` wrapper, defensive `addSidebarItem`, null-safe `updateBadge`, null-safe `updateAdminProgressInfo`
 - `js/modules/initialization.js` — Restored to original with all system checks intact
 - `sw.js` — Network-first caching strategy, v3 cache, skipWaiting + clients.claim
+
+## Phase 7: Merge Story Control and Chapter Generation Speed Features
+- [x] Analyzed current structure of both sections in Director Panel
+- [x] Created unified "Story Generation Control" section combining both features
+- [x] Updated HTML structure in index.html
+- [x] Added CSS styling for control-buttons section in styles.css
+- [x] Test merged functionality
+- [ ] Commit and push changes to GitHub

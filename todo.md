@@ -46,5 +46,28 @@
 - [x] Created unified "Story Generation Control" section combining both features
 - [x] Updated HTML structure in index.html
 - [x] Added CSS styling for control-buttons section in styles.css
-- [x] Test merged functionality
-- [ ] Commit and push changes to GitHub
+- [x] Tested merged functionality
+- [x] Committed and pushed changes to GitHub
+
+## Phase 8: Fix Login Button Issue
+- [ ] Investigate login button functionality
+- [ ] Find why login screen doesn't close after successful login
+- [ ] Fix the login modal closing logic
+- [ ] Test login functionality
+
+## Phase 9: Review All Files Against Master Rules
+- [ ] Review index.html for compliance
+- [ ] Review all JavaScript files in js/modules/
+- [ ] Review all JavaScript files in js/ui/
+- [ ] Review styles.css
+- [ ] Check for any violations of master rules
+
+## Phase 10: Fix Identified Issues
+- [ ] Fix any code violations found
+- [ ] Ensure all files follow best practices
+- [ ] Test all functionality
+
+## Phase 11: Deploy and Verify
+- [ ] Commit all fixes
+- [ ] Push to GitHub
+- [ ] Verify deployment works correctly

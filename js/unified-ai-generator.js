@@ -792,7 +792,6 @@ const UnifiedAIGenerator = (function() {
      */
     function log(message) {
         if (config.enableLogging) {
-            console.log(message);
         }
     }
 

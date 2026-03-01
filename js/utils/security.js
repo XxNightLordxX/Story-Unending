@@ -143,7 +143,6 @@ const Validator = {
    * if (result.valid) {
    *   // Email is valid
    * } else {
-   *   // console.log(result.error);
    * }
    */
   validate(type, value) {

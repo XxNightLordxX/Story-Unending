@@ -66,7 +66,6 @@ const UnifiedPoolManager = (() => {
    */
   function log(message) {
     if (config.enableLogging) {
-      console.log(message);
     }
   }
   

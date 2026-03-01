@@ -12,7 +12,7 @@
     item.className = 'sidebar-item';
     item.dataset.num = chapter.number;
     item.onclick = () => {
-      alert(`Clicked chapter ${chapter.number}: ${chapter.title}`);
+      showNotification(`Clicked chapter ${chapter.number}: ${chapter.title}`);
       showChapter(chapter.number);
       if (window.innerWidth < 768) toggleSidebar();
     };
@@ -34,7 +34,7 @@
   };
 
   const jumpToChapter = () => {
-    alert(`jumpToChapter: Calling showChapter(${chapterNum})`);
+    showNotification(`jumpToChapter: Calling showChapter(${chapterNum})`);
     showChapter(chapterNum);
     input.value = '';
 

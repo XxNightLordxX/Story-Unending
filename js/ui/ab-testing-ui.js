@@ -311,7 +311,7 @@
     });
 
     if (variants.length < 2) {
-      alert('Please add at least 2 variants');
+      showNotification('Please add at least 2 variants');
       return;
     }
 
@@ -426,7 +426,7 @@
     if (container.children.length > 1) {
       button.parentElement.remove();
     } else {
-      alert('You must have at least 2 variants');
+      showNotification('You must have at least 2 variants');
     }
   }
 

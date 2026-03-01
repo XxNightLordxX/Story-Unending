@@ -14,7 +14,6 @@ window.miscJsLoaded = true;
     } else if (typeof window.showNotification === 'function') {
       window.showNotification(...args);
     } else {
-      console.log('[Notification]', ...args);
     }
   };
   
@@ -49,7 +48,7 @@ const addSidebarItem = (chapter) => {
       item.className = 'sidebar-item';
       item.dataset.num = chapter.number;
       item.onclick = () => {
-        alert(`Clicked chapter ${chapter.number}: ${chapter.title}`);
+        showNotification(`Clicked chapter ${chapter.number}: ${chapter.title}`);
         showChapter(chapter.number);
         if (window.innerWidth < 768) toggleSidebar();
       };
@@ -183,13 +182,13 @@ const showChapter = (num) => {
       
       if (!container) {
         console.error('❌ storyContainer element not found!');
-        alert('storyContainer element not found!');
+        showNotification('storyContainer element not found!');
         return;
       }
       
       if (!chapter) {
         console.error(`❌ Chapter ${num} not found in AppState.chapters`);
-        alert(`Chapter ${num} not found in AppState.chapters`);
+        showNotification(`Chapter ${num} not found in AppState.chapters`);
         return;
       }
       

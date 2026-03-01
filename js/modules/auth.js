@@ -34,7 +34,15 @@
     
     const attemptsLeft = RateLimiter.getRemainingAttempts(rateLimitKey);
     const password = document.getElementById('loginPassword').value;
-    RateLimiter.reset(rateLimitKey); loginUser(ADMIN_USER); closeModal('loginOverlay'); return;
+    
+    // Check if it's admin login
+    if (username === ADMIN_USER.username && password === ADMIN_USER.password) {
+      RateLimiter.reset(rateLimitKey);
+      loginUser(ADMIN_USER);
+      closeModal('loginOverlay');
+      return;
+    }
+    
     const users = getUsers();
     const user = users.find(u => u.username === username && u.password === password);
     if (!user) { showNotification('combat-notif', '❌ Error', `Invalid credentials. ${attemptsLeft - 1} attempts remaining.`); return; }

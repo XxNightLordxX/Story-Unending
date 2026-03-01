@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Endless Story Engine — Vampire Progenitor: Extraction</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="css/backup.css">
+  
   <link rel="stylesheet" href="css/fuzzy-search.css">
   
   
 <link rel="stylesheet" href="css/performance-advanced.css">
-<link rel="stylesheet" href="css/ab-testing.css">
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧛</text></svg>">
   <meta name="description" content="An interactive narrative experience exploring grief, survival, and virtual reality escapism">
   <meta name="theme-color" content="#1a1a2e">
@@ -72,18 +72,6 @@
             <button class="dropdown-btn blue-btn" onclick="ReadingHistoryUI.openModal(); UIDropdown.closeDropdown();" aria-label="Open search dialog">
               <span class="dropdown-btn-icon">📊</span>
               <div><span class="dropdown-btn-text">Reading History</span><br><span class="dropdown-btn-sub">View progress</span></div>
-            </button>
-            <button aria-label="Open Modal" class="dropdown-btn green-btn" onclick="BackupUI.openModal(); UIDropdown.closeDropdown();">
-              <span class="dropdown-btn-icon">💾</span>
-              <div><span class="dropdown-btn-text">Backup</span><br><span class="dropdown-btn-sub">Manage backups</span></div>
-            </button>
-            <button aria-label="Load Module" class="dropdown-btn" onclick="LazyLoader.loadModule('analytics').then(() => { AnalyticsUI.openModal() }).catch(err => console.error(err))">
-              <div class="dropdown-btn-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">📊</div>
-              <div><span class="dropdown-btn-text">Analytics</span><br><span class="dropdown-btn-sub">View statistics</span></div>
-            </button>
-            <button aria-label="Open Modal" class="dropdown-btn" onclick="ABTestingUI.openModal(); UIDropdown.closeDropdown();">
-              <div class="dropdown-btn-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">🧪</div>
-              <div><span class="dropdown-btn-text">A/B Testing</span><br><span class="dropdown-btn-sub">Run experiments</span></div>
             </button>
             <button aria-label="Load Module" class="dropdown-btn" onclick="LazyLoader.loadModule('content-management').then(() => { ContentManagementUI.openModal() }).catch(err => console.error(err))">
               <div class="dropdown-btn-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">📝</div>
@@ -770,11 +758,9 @@
   <script src="js/ui/search-ui-enhanced.js?v=3"></script>
   <script src="js/modules/search-suggestions.js?v=3"></script>
   
-  <script src="js/modules/backup.js?v=3"></script>
-  <script src="js/ui/backup-ui.js?v=3"></script>
+  
   <script src="js/modules/performance-advanced.js?v=3"></script>
-<script src="js/modules/ab-testing.js?v=3"></script>
-<script src="js/ui/ab-testing-ui.js?v=3"></script>
+
   <!-- Service Worker Registration -->
   <script>
     if ('serviceWorker' in navigator) {

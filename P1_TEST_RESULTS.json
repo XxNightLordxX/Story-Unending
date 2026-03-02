@@ -1,0 +1,272 @@
+{
+  "total": 53,
+  "passed": 53,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "Search module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Search chapter function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Search all chapters function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Advanced search function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Search module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Fuzzy search module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Fuzzy search function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Fuzzy search module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Search suggestions module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Get cached suggestions function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Search suggestions module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Search UI module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Search UI enhanced module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Search UI module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Search UI enhanced module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Bookmarks module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Create bookmark function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Delete bookmark function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Get bookmarks function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Save bookmarks function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Bookmarks module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Bookmarks UI module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Bookmarks UI module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Reading history module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Start reading session function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Get reading history function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Clear reading history function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Reading history module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Reading history UI module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Reading history UI module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "User preferences module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Save preferences function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Load preferences function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Set preference function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "User preferences module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Text size module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Set text size function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Text size module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Notifications module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Show notification function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Show notification immediate function exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Notifications module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Notifications UI module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Notifications UI module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Social sharing module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Share to platform function exists (exported)",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Generate chapter share text function exists (exported)",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Generate achievement share text function exists (exported)",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Social sharing module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Social sharing UI module exists",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Social sharing UI module - No console.log",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Fuzzy search module included in HTML",
+      "passed": true,
+      "message": ""
+    },
+    {
+      "name": "Notifications module included in HTML",
+      "passed": true,
+      "message": ""
+    }
+  ]
+}

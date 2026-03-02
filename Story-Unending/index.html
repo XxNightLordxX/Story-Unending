@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Endless Story Engine — Vampire Progenitor: Extraction</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <link rel="stylesheet" href="css/fuzzy-search.css">
+  
+  
+<link rel="stylesheet" href="css/performance-advanced.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧛</text></svg>">
+  <meta name="description" content="An interactive narrative experience exploring grief, survival, and virtual reality escapism">
+  <meta name="theme-color" content="#1a1a2e">
+  <link rel="manifest" href="manifest.json">
+  
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar" role="banner">
+    <div class="topbar-left">
+      <button class="btn btn-icon" id="sidebarToggle" title="Chapters (S)" aria-label="Toggle chapter sidebar">☰</button>
+      <div class="topbar-info">
+        <div class="topbar-title">🧛 Vampire Progenitor: Extraction</div>
+        <div class="topbar-subtitle" id="arcDisplay">Arc: Awakening</div>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <!-- Chapter Nav in topbar -->
+      <div class="topbar-nav">
+        <button class="nav-btn" id="prevBtnTop" onclick="Navigation.prevChapter()" title="Previous Chapter" aria-label="Previous Chapter">◀</button>
+        <span class="nav-current" id="navCurrentTop">Ch. 1</span>
+        <button class="nav-btn" id="nextBtnTop" onclick="Navigation.nextChapter()" title="Next Chapter" aria-label="Next Chapter">▶</button>
+      </div>
+      <div class="dropdown-wrapper">
+        <button class="menu-toggle-btn" id="menuToggle" onclick="UIDropdown.toggleDropdown()" aria-label="Open menu">⚙️</button>
+        <div class="dropdown-menu" id="dropdownMenu">
+
+          <!-- Auth: Logged Out -->
+          <div class="dropdown-section" id="dropdownAuthSection">
+            <div class="dropdown-section-title">Account</div>
+            <button aria-label="Open Modal" class="dropdown-btn purple-btn" onclick="UIModals.openModal('loginOverlay'); UIDropdown.closeDropdown();">
+              <span class="dropdown-btn-icon">🔑</span><span class="dropdown-btn-text">Login</span>
+            </button>
+            <button class="dropdown-btn green-btn" onclick="UIModals.openModal('registerOverlay'); UIDropdown.closeDropdown();" aria-label="Open login dialog">
+              <span class="dropdown-btn-icon">📝</span><span class="dropdown-btn-text">Register</span>
+            </button>
+          </div>
+
+          <!-- Auth: Logged In -->
+          <div class="dropdown-section" id="dropdownUserSection" style="display:none;">
+            <div class="dropdown-section-title">Account</div>
+            <div tabindex="0" aria-label="Toggle Director Mode From User" role="button" class="dropdown-user-info" id="dropdownUserInfo" onclick="toggleDirectorModeFromUser()" style="cursor:pointer;">
+              <span class="dui-icon" id="dropdownUserIcon">👤</span>
+              <div>
+                <div class="dui-name" id="dropdownUserName"></div>
+                <div class="dui-role" id="dropdownUserRole">Reader</div>
+              </div>
+              <span class="dui-toggle-hint" id="duiToggleHint" style="display:none;">🎬 Click for Director Mode</span>
+            </div>
+            <button aria-label="Open Modal" class="dropdown-btn blue-btn" id="addEmailBtn" onclick="UIModals.openModal('addEmailOverlay'); UIDropdown.closeDropdown();" style="display:none;">
+              <span class="dropdown-btn-icon">📧</span>
+              <div><span class="dropdown-btn-text">Add Email</span><br><span class="dropdown-btn-sub">Enable password reset</span></div>
+            </button>
+            <button aria-label="Open Modal" class="dropdown-btn purple-btn" onclick="SearchUIEnhanced.openModal(); UIDropdown.closeDropdown();">
+              <span class="dropdown-btn-icon">🔍</span>
+              <div><span class="dropdown-btn-text">Search</span><br><span class="dropdown-btn-sub">Find content</span></div>
+            </button>
+            <button class="dropdown-btn blue-btn" onclick="ReadingHistoryUI.openModal(); UIDropdown.closeDropdown();" aria-label="Open search dialog">
+              <span class="dropdown-btn-icon">📊</span>
+              <div><span class="dropdown-btn-text">Reading History</span><br><span class="dropdown-btn-sub">View progress</span></div>
+            </button>
+            <button aria-label="Load Module" class="dropdown-btn" onclick="LazyLoader.loadModule('content-management').then(() => { ContentManagementUI.openModal() }).catch(err => console.error(err))">
+              <div class="dropdown-btn-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">📝</div>
+              <div><span class="dropdown-btn-text">Content Management</span><br><span class="dropdown-btn-sub">Manage content</span></div>
+            </button>
+            <button aria-label="Load Module" class="dropdown-btn" onclick="LazyLoader.loadModule('user-features').then(() => { UserFeaturesUI.openModal() }).catch(err => console.error(err))">
+            <button aria-label="Load Module" class="dropdown-btn" onclick="LazyLoader.loadModule('notifications').then(() => { NotificationsUI.openModal() }).catch(err => console.error(err))">
+              <div class="dropdown-btn-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">🔔</div>
+              <div><span class="dropdown-btn-text">Notifications</span><br><span class="dropdown-btn-sub">Manage alerts</span></div>
+            </button>
+              <div class="dropdown-btn-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">👤</div>
+              <div><span class="dropdown-btn-text">User Features</span><br><span class="dropdown-btn-sub">Profile & settings</span></div>
+            </button>
+            <button aria-label="Close Dropdown" class="dropdown-btn red-btn" onclick="logout(); UIDropdown.closeDropdown();">
+              <span class="dropdown-btn-icon">🚪</span><span class="dropdown-btn-text">Logout</span>
+            </button>
+
+          <!-- Director Section (Admin Only) -->
+          </div>
+          <div class="dropdown-section" id="dropdownDirectorSection" style="display:none;">
+            <div class="dropdown-section-title">🎬 Director Controls</div>
+            <button aria-label="Close Dropdown" class="dropdown-btn purple-btn" onclick="toggleDirectorModeFromUser(); UIDropdown.closeDropdown();">
+              <span class="dropdown-btn-icon">🎬</span>
+              <div><span class="dropdown-btn-text">Director Mode</span><br><span class="dropdown-btn-sub">Full director panel</span></div>
+            </button>
+            <button aria-label="Close Dropdown" class="dropdown-btn red-btn" onclick="resetStory(); UIDropdown.closeDropdown();">
+              <span class="dropdown-btn-icon">🔄</span>
+              <div><span class="dropdown-btn-text">Reset Story</span><br><span class="dropdown-btn-sub">Start from Chapter 1</span></div>
+            </button>
+          </div>
+
+          <!-- MC Stat Sheet -->
+          <div class="dropdown-section dropdown-stat-sheet">
+            <div class="dropdown-section-title">🧛 Kael — Vampire Progenitor (Lv. <span id="ddLevel">1</span>)</div>
+            <div id="ddChapterIndicator" class="dd-chapter-indicator">
+              <span class="dd-chapter-badge latest">📖 Latest — Ch. 1</span>
+            </div>
+            <button aria-label="Dd Jump Latest" class="btn btn-jump-latest" id="ddJumpLatest" onclick="jumpToLatestChapter()" style="display:none;">
+              ⚡ Jump to Latest Chapter
+            </button>
+            <div class="dropdown-stat-bars">
+              <div class="dropdown-stat-bar"><span class="ds-label">❤️ HP</span><div class="ds-track"><div class="ds-fill hp" id="ddBarHp" style="width:100%"></div></div><span class="ds-val" id="ddHpVal">500/500</span></div>
+              <div class="dropdown-stat-bar"><span class="ds-label">💚 SP</span><div class="ds-track"><div class="ds-fill sp" id="ddBarSp" style="width:100%"></div></div><span class="ds-val" id="ddSpVal">300/300</span></div>
+              <div class="dropdown-stat-bar"><span class="ds-label">💙 MP</span><div class="ds-track"><div class="ds-fill mp" id="ddBarMp" style="width:100%"></div></div><span class="ds-val" id="ddMpVal">400/400</span></div>
+              <div class="dropdown-stat-bar"><span class="ds-label">🩸 Blood</span><div class="ds-track"><div class="ds-fill blood" id="ddBarBlood" style="width:100%"></div></div><span class="ds-val" id="ddBloodVal">100/100</span></div>
+            </div>
+            <div class="dropdown-stat-grid">
+              <div class="dropdown-stat-cell"><span class="dsc-name">💪 STR</span><span class="dsc-val purple" id="ddStr">12</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">🏃 AGI</span><span class="dsc-val green" id="ddAgi">15</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">🧠 INT</span><span class="dsc-val blue" id="ddInt">18</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">❤️ VIT</span><span class="dsc-val red" id="ddVit">14</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">🛡️ END</span><span class="dsc-val green" id="ddEnd">13</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">🍀 LCK</span><span class="dsc-val gold" id="ddLuck">10</span></div>
+            </div>
+            <div class="dropdown-stat-grid">
+              <div class="dropdown-stat-cell"><span class="dsc-name">🩸 Bloodlust</span><span class="dsc-val crimson" id="ddBloodlust">0</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">🌑 Dark</span><span class="dsc-val purple" id="ddDark">15</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">💗 Regen</span><span class="dsc-val green" id="ddRegen">5</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">👁️ Dom</span><span class="dsc-val crimson" id="ddDom">8</span></div>
+            </div>
+            <div class="dropdown-stat-grid">
+              <div class="dropdown-stat-cell"><span class="dsc-name">⚔️ ATK</span><span class="dsc-val red" id="ddAtk">25</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">🛡️ DEF</span><span class="dsc-val blue" id="ddDef">18</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">💥 Crit</span><span class="dsc-val gold" id="ddCrit">8%</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">💨 Eva</span><span class="dsc-val green" id="ddEva">12%</span></div>
+            </div>
+            <div class="dropdown-stat-grid">
+              <div class="dropdown-stat-cell"><span class="dsc-name">⚖️ Karma</span><span class="dsc-val gold" id="ddKarma">50</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">🔮 Instinct</span><span class="dsc-val purple" id="ddInstinct">10</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">🧠 Will</span><span class="dsc-val blue" id="ddWill">16</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">👤 Presence</span><span class="dsc-val crimson" id="ddPresence">12</span></div>
+            </div>
+            <div class="dropdown-stat-grid">
+              <div class="dropdown-stat-cell"><span class="dsc-name">🪙 Gold</span><span class="dsc-val gold" id="ddGold">0</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">🔮 Extract</span><span class="dsc-val cyan" id="ddExtract">0</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">💀 Kills</span><span class="dsc-val red" id="ddKills">0</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">👑 Bosses</span><span class="dsc-val gold" id="ddBosses">0</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">🏰 Dungeons</span><span class="dsc-val purple" id="ddDungeons">0</span></div>
+              <div class="dropdown-stat-cell"><span class="dsc-name">📍 Location</span><span class="dsc-val" id="ddLocation">Real World</span></div>
+            </div>
+          </div>
+
+          <!-- Text Size -->
+          <div class="dropdown-section">
+            <div class="dropdown-section-title">📖 Text Size</div>
+            <div class="text-size-controls">
+              <input type="number" id="textSizeInput" class="text-size-input" min="10" max="32" value="16" onchange="UITextSize.setTextSize(this.value)">
+              <span class="text-size-unit">px</span>
+            </div>
+          </div>
+
+          <!-- Full Status -->
+          <div class="dropdown-section">
+            <button aria-label="Button" class="dropdown-btn purple-btn" onclick="toggleSection('statusContent')">
+              <span class="dropdown-btn-icon">📊</span>
+              <div><span class="dropdown-btn-text">Status</span><br><span class="dropdown-btn-sub">Full status screen</span></div>
+              <span class="dropdown-toggle-icon">▼</span>
+            </button>
+            <div class="dropdown-section-content" id="statusContent">
+              <button aria-label="Close Dropdown" class="dropdown-btn purple-btn" onclick="toggleStatusScreen(); UIDropdown.closeDropdown();">
+                <span class="dropdown-btn-icon">📊</span>
+                <div><span class="dropdown-btn-text">Full Status Screen</span><br><span class="dropdown-btn-sub">Skills, abilities & stats</span></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Session -->
+          <div class="dropdown-section">
+            <button aria-label="Button" class="dropdown-btn blue-btn" onclick="toggleSection('sessionContent')">
+              <span class="dropdown-btn-icon">⏱️</span>
+              <div><span class="dropdown-btn-text">Session Stats</span><br><span class="dropdown-btn-sub">Chapters, words & time</span></div>
+              <span class="dropdown-toggle-icon">▼</span>
+            </button>
+            <div class="dropdown-section-content" id="sessionContent">
+              <div class="dropdown-stat-grid">
+                <div class="dropdown-stat-cell"><span class="dsc-name">📖 Chapters</span><span class="dsc-val purple" id="ddChapters">0</span></div>
+                <div class="dropdown-stat-cell"><span class="dsc-name">📝 Words</span><span class="dsc-val blue" id="ddWords">0</span></div>
+                <div class="dropdown-stat-cell"><span class="dsc-name">⏱️ Time</span><span class="dsc-val" id="ddTimer">00:00:00</span></div>
+                <div class="dropdown-stat-cell"><span class="dsc-name">⚔️ Level</span><span class="dsc-val purple" id="ddLevelBottom">1</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Director Panel (Admin Only) -->
+          </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stats bar removed — all stats now in dropdown menu -->
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>📖 Chapters</h3>
+      <button aria-label="Toggle Sidebar" class="btn btn-icon btn-sm" onclick="UISidebar.toggleSidebar()">✕</button>
+    </div>
+    <div class="sidebar-jump">
+      <input type="number" id="sidebarJumpInput" placeholder="Go to chapter..." min="1" onkeypress="UISidebar.handleSidebarJumpKey(event)" / aria-label="Go to chapter...">
+      <button aria-label="Go" class="btn btn-primary btn-sm" onclick="UISidebar.jumpToChapter()">Go</button>
+    </div>
+    <div class="sidebar-list" id="sidebarList"></div>
+  </aside>
+
+  <!-- MAIN CONTENT — Single Chapter View -->
+  <main class="main-content" id="mainContent" role="main" aria-label="Story content">
+    <!-- Single chapter renders here -->
+    <div id="storyContainer"></div>
+
+    <!-- Chapter Navigation (bottom) -->
+    <div class="chapter-nav" id="chapterNav">
+      <button aria-label="Prev Chapter" class="chapter-nav-btn prev" id="prevBtn" onclick="Navigation.prevChapter()">
+        <span class="cnb-arrow">←</span>
+        <span class="cnb-label">Previous Chapter</span>
+        <span class="cnb-title" id="prevTitle"></span>
+      </button>
+      <button aria-label="Next Chapter" class="chapter-nav-btn next" id="nextBtn" onclick="Navigation.nextChapter()">
+        <span class="cnb-label">Next Chapter</span>
+        <span class="cnb-title" id="nextTitle"></span>
+        <span class="cnb-arrow">→</span>
+      </button>
+    </div>
+
+    <!-- Generating indicator -->
+    <div class="generating-indicator" id="generatingIndicator">
+      <span>Generating chapters</span>
+      <span class="generating-dots"><span></span><span></span><span></span></span>
+    </div>
+  </main>
+
+  <!-- Full Status Screen -->
+  <div class="status-screen" id="statusScreen" style="display:none;">
+    <div class="status-screen-header">
+      <h1>📊 Full Status Screen</h1>
+      <button aria-label="← Back to Reader Mode" class="btn btn-primary" onclick="toggleStatusScreen()">← Back to Reader Mode</button>
+    </div>
+    <div class="status-screen-content">
+      <!-- Character Info -->
+      <div class="status-section">
+        <div class="status-section-title">🧛 Character Information</div>
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="status-card-label">Name</div>
+            <div class="status-card-value">Kael</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Class</div>
+            <div class="status-card-value">Vampire Progenitor</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Level</div>
+            <div class="status-card-value" id="statusLevel">1</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Extractions</div>
+            <div class="status-card-value" id="statusExtractions">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Stats -->
+      <div class="status-section">
+        <div class="status-section-title">❤️ Core Stats</div>
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="status-card-label">HP</div>
+            <div class="status-card-value" id="statusHP">100</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">SP</div>
+            <div class="status-card-value" id="statusSP">100</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">MP</div>
+            <div class="status-card-value" id="statusMP">50</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Blood Essence</div>
+            <div class="status-card-value" id="statusBloodEssence">100</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Primary Stats -->
+      <div class="status-section">
+        <div class="status-section-title">⚔️ Primary Stats</div>
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="status-card-label">Strength</div>
+            <div class="status-card-value" id="statusSTR">10</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Agility</div>
+            <div class="status-card-value" id="statusAGI">10</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Intelligence</div>
+            <div class="status-card-value" id="statusINT">10</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Vitality</div>
+            <div class="status-card-value" id="statusVIT">10</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Endurance</div>
+            <div class="status-card-value" id="statusEND">10</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Luck</div>
+            <div class="status-card-value" id="statusLUCK">5</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vampire Stats -->
+      <div class="status-section">
+        <div class="status-section-title">🧛 Vampire Stats</div>
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="status-card-label">Bloodlust</div>
+            <div class="status-card-value" id="statusBloodlust">0</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Dark Affinity</div>
+            <div class="status-card-value" id="statusDarkAffinity">0</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Regeneration</div>
+            <div class="status-card-value" id="statusRegeneration">0</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Domination</div>
+            <div class="status-card-value" id="statusDomination">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Combat Stats -->
+      <div class="status-section">
+        <div class="status-section-title">⚔️ Combat Stats</div>
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="status-card-label">Attack Power</div>
+            <div class="status-card-value" id="statusAttackPower">15</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Defense</div>
+            <div class="status-card-value" id="statusDefense">10</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Critical Rate</div>
+            <div class="status-card-value" id="statusCriticalRate">5%</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Evasion</div>
+            <div class="status-card-value" id="statusEvasion">5%</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Attack Speed</div>
+            <div class="status-card-value" id="statusAttackSpeed">10</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hidden Stats -->
+      <div class="status-section">
+        <div class="status-section-title">🌟 Hidden Stats</div>
+        <div class="status-grid">
+          <div class="status-card">
+            <div class="status-card-label">Karma</div>
+            <div class="status-card-value" id="statusKarma">0</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Instinct</div>
+            <div class="status-card-value" id="statusInstinct">0</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Willpower</div>
+            <div class="status-card-value" id="statusWillpower">0</div>
+          </div>
+          <div class="status-card">
+            <div class="status-card-label">Presence</div>
+            <div class="status-card-value" id="statusPresence">0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="status-section">
+        <div class="status-section-title">✨ Skills</div>
+        <div class="status-list" id="statusSkills">
+          <div class="status-empty">No skills yet</div>
+        </div>
+      </div>
+
+      <!-- Abilities -->
+      <div class="status-section">
+        <div class="status-section-title">🌟 Abilities</div>
+        <div class="status-list" id="statusAbilities">
+          <div class="status-empty">No abilities yet</div>
+        </div>
+      </div>
+
+      <!-- Inventory -->
+      <div class="status-section">
+        <div class="status-section-title">🎒 Inventory</div>
+        <div class="status-list" id="statusInventory">
+          <div class="status-empty">No items yet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full Director Screen -->
+  <div class="director-screen" id="directorScreen" style="display:none;">
+    <div class="director-screen-header">
+      <h1>🎬 Story Director Panel</h1>
+      <button aria-label="← Back to Reader Mode" class="btn btn-primary" onclick="toggleDirectorMode()">← Back to Reader Mode</button>
+    </div>
+    <div class="director-screen-content">
+      <!-- Chapter Speed Control -->
+      <!-- Story Generation Control -->
+      <div class="director-section">
+        <div class="director-section-title">🎮 Story Generation Control</div>
+        
+        <!-- Generation Mode -->
+        <div class="form-group">
+          <label>Generation Mode</label>
+          <select id="generationMode" onchange="updateGenerationMode()" style="width:100%;padding:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:rgba(255,255,255,0.9);">
+            <option value="unlimited">Unlimited Generation</option>
+            <option value="admin_progress">Limit to Admin Reading Progress</option>
+          </select>
+        </div>
+        
+        <!-- Admin Progress Info -->
+        <div class="form-group" id="adminProgressInfo" style="display:none;">
+          <label>Admin Current Chapter: <span id="adminCurrentChapter">1</span></label>
+          <label>Generated Chapters: <span id="generatedChaptersCount">0</span></label>
+        </div>
+        
+        <!-- Speed Controls -->
+        <div class="form-group">
+          <label>Chapter Generation Speed</label>
+          <div class="speed-presets">
+            <button aria-label="5s" class="btn btn-sm" data-speed="5000" onclick="setSpeed(5000)">5s</button>
+            <button aria-label="10s" class="btn btn-sm" data-speed="10000" onclick="setSpeed(10000)">10s</button>
+            <button aria-label="15s" class="btn btn-sm" data-speed="15000" onclick="setSpeed(15000)">15s</button>
+            <button aria-label="30s" class="btn btn-sm" data-speed="30000" onclick="setSpeed(30000)">30s</button>
+            <button aria-label="1m" class="btn btn-sm" data-speed="60000" onclick="setSpeed(60000)">1m</button>
+            <button aria-label="5m" class="btn btn-sm" data-speed="300000" onclick="setSpeed(300000)">5m</button>
+          </div>
+          <div class="speed-custom-row">
+            <input type="number" id="customSpeedInputScreen" min="1" max="3600" placeholder="30" / aria-label="30">
+            <button aria-label="Set" class="btn btn-primary btn-sm" onclick="setCustomSpeedScreen()">Set</button>
+          </div>
+        </div>
+        
+        <!-- Current Speed Display -->
+        <div class="speed-current" id="speedCurrentDisplayScreen">
+          Current: <strong>1 chapter every <span id="speedValueDisplayScreen">30s</span></strong>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="control-buttons">
+          <button aria-label="Pause Btn Screen" class="btn btn-pause" id="pauseBtnScreen" onclick="togglePause()">
+            <span id="pauseIconScreen">⏸️</span> <span id="pauseLabelScreen">Pause Generation</span>
+          </button>
+          <button aria-label="Button" class="btn btn-danger" onclick="resetStory()">
+            🔄 Reset Story to Chapter 1
+          </button>
+        </div>
+      </div>
+
+
+      <!-- Story Directive -->
+      <div class="director-section">
+        <div class="director-section-title">📝 Story Directive</div>
+        <div class="form-group">
+          <label>Directive</label>
+          <textarea id="directiveTextScreen" placeholder="e.g. A mysterious NPC appears offering a forbidden quest..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Apply within next</label>
+          <input type="number" id="directiveChaptersScreen" min="1" max="50" value="3" />
+          <span>chapters</span>
+        </div>
+        <button aria-label="Submit Directive" class="btn btn-primary" onclick="submitDirectiveScreen()">Submit Directive</button>
+      </div>
+
+      <!-- Admin Account Settings -->
+      <div class="director-section">
+        <div class="director-section-title">👑 Admin Account Settings</div>
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" id="adminUsernameScreen" value="admin" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <div class="password-input-group">
+            <input type="password" id="adminPasswordScreen" placeholder="Enter admin password" / aria-label="Enter admin password">
+            <button aria-label="Button" class="btn btn-sm" onclick="togglePasswordVisibility('adminPasswordScreen')">👁️</button>
+          </div>
+        </div>
+        <button aria-label="Update Credentials" class="btn btn-primary" onclick="Admin.updateAdminCredentialsScreen()">Update Credentials</button>
+      </div>
+
+      <!-- User Management -->
+      <div class="director-section">
+        <div class="director-section-title">👥 User Management</div>
+        <div class="user-management-header">
+          <span id="userCountScreen">0 users</span>
+          <button aria-label="Minimize" class="btn btn-sm" onclick="Admin.toggleUserManagementScreen()">Minimize</button>
+        </div>
+        <div class="user-search">
+          <input type="text" id="userSearchInputScreen" placeholder="Search users..." oninput="Admin.filterUsersScreen()" / aria-label="Search users...">
+        </div>
+        <div class="user-list" id="userListScreen">
+          <!-- Users will be populated here -->
+        </div>
+      </div>
+
+      <!-- Story Rules -->
+      <div class="director-section">
+        <div class="director-section-title">📜 Story Rules</div>
+        <div class="form-group">
+          <label>Add New Rule</label>
+          <textarea id="storyRuleText" placeholder="e.g. Keep Yuna in the story, change MC to female, add a new companion..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Rule Type</label>
+          <select id="ruleType" style="width:100%;padding:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:rgba(255,255,255,0.9);">
+            <option value="character">Character Change</option>
+            <option value="plot">Plot Direction</option>
+            <option value="world">World Rule</option>
+            <option value="system">System Change</option>
+          </select>
+        </div>
+        <button aria-label="Add Rule" class="btn btn-primary" onclick="addStoryRule()">Add Rule</button>
+        <div class="story-rules-list" id="storyRulesList"></div>
+      </div>
+
+
+  <!-- FLOATING -->
+  <div tabindex="0" aria-label="Toggle Sidebar" role="button" class="chapter-badge" id="chapterBadge" onclick="UISidebar.toggleSidebar()">
+    📖 <span id="badgeCount">0</span>
+  </div>
+
+  <!-- NOTIFICATIONS -->
+  <div class="notification-container" id="notificationContainer"></div>
+
+  <!-- REGISTER MODAL -->
+  <div class="modal-overlay" id="registerOverlay">
+    <div class="modal">
+      <button aria-label="Close Modal" class="modal-close" onclick="UIModals.closeModal('registerOverlay')">✕</button>
+      <h2>📝 Create Account</h2>
+      <p class="modal-desc">Join the Endless Story Engine</p>
+      <div class="form-group">
+        <label>Username *</label>
+        <input type="text" id="regUsername" placeholder="Enter username" / aria-label="Enter username">
+      </div>
+      <div class="form-group">
+        <label>Email <span class="optional">(optional)</span></label>
+        <input type="email" id="regEmail" placeholder="Enter email" / aria-label="Enter email">
+      </div>
+      <div class="form-group">
+        <label>Password *</label>
+        <input type="password" id="regPassword" placeholder="Enter password" / aria-label="Enter password">
+      </div>
+      <button aria-label="Create Account" class="btn btn-primary" onclick="Auth.register()" style="width:100%;justify-content:center;">Create Account</button>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="loginOverlay">
+    <div class="modal">
+      <button aria-label="Close Modal" class="modal-close" onclick="UIModals.closeModal('loginOverlay')">✕</button>
+      <h2>🔑 Login</h2>
+      <p class="modal-desc">Welcome back, reader</p>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="loginUsername" placeholder="Enter username" / aria-label="Enter username">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter password" / aria-label="Enter password">
+      </div>
+      <button aria-label="Login" type="button" class="btn btn-primary" onclick="Auth.login()" style="width:100%;justify-content:center;">Login</button>
+      <div class="forgot-password">
+        <a href="#" onclick="UIModals.openModal('resetPasswordOverlay'); UIModals.closeModal('loginOverlay'); return false;">Forgot password?</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESET PASSWORD MODAL -->
+  <div class="modal-overlay" id="resetPasswordOverlay">
+    <div class="modal">
+      <button class="modal-close" onclick="UIModals.closeModal('resetPasswordOverlay')" aria-label="Open login dialog">✕</button>
+      <h2>🔐 Reset Password</h2>
+      <p class="modal-desc">Enter your email to receive a password reset link</p>
+      <div id="resetStep1">
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" id="resetEmail" placeholder="Enter your email address" / aria-label="Enter your email address">
+        </div>
+        <button aria-label="Send Reset Link" class="btn btn-primary" onclick="sendResetEmail()" style="width:100%;justify-content:center;">Send Reset Link</button>
+      </div>
+      <div id="resetStep2" style="display:none;">
+        <div class="reset-success">
+          <div class="reset-success-icon">📧</div>
+          <h3>Email Sent!</h3>
+          <p>A password reset link has been sent to <strong id="resetEmailDisplay"></strong>.</p>
+          <p class="reset-note">Check your inbox and click the link to reset your password.</p>
+          <button aria-label="Simulate Clicking Reset Link" class="btn btn-primary" onclick="simulateResetLink()" style="width:100%;justify-content:center;margin-top:16px;">🔗 Simulate Clicking Reset Link</button>
+        </div>
+      </div>
+      <div id="resetStep3" style="display:none;">
+        <div class="form-group">
+          <label>New Password *</label>
+          <input type="password" id="resetNewPassword" placeholder="Enter new password" / aria-label="Enter new password">
+        </div>
+        <div class="form-group">
+          <label>Confirm Password *</label>
+          <input type="password" id="resetConfirmPassword" placeholder="Confirm new password" / aria-label="Confirm new password">
+        </div>
+        <button aria-label="Reset Password" class="btn btn-primary" onclick="resetPassword()" style="width:100%;justify-content:center;">Reset Password</button>
+      </div>
+      <div id="resetStep4" style="display:none;">
+        <div class="reset-success">
+          <div class="reset-success-icon">✅</div>
+          <h3>Password Reset!</h3>
+          <p>Your password has been successfully updated.</p>
+          <button aria-label="Login with New Password" class="btn btn-primary" onclick="UIModals.closeModal('resetPasswordOverlay'); UIModals.openModal('loginOverlay');" style="width:100%;justify-content:center;margin-top:16px;">Login with New Password</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD EMAIL MODAL -->
+  <div class="modal-overlay" id="addEmailOverlay">
+    <div class="modal">
+      <button aria-label="Close Modal" class="modal-close" onclick="UIModals.closeModal('addEmailOverlay')">✕</button>
+      <h2>📧 Add Email</h2>
+      <p class="modal-desc">Add an email to your account for password reset</p>
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" id="addEmailInput" placeholder="Enter your email address" / aria-label="Enter your email address">
+      </div>
+      <button aria-label="Add Email" class="btn btn-primary" onclick="Admin.addEmailToAccount()" style="width:100%;justify-content:center;">Add Email</button>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="backstory-engine.js?v=3"></script>
+  <script src="story-engine.js?v=3"></script>
+  <script src="js/web-content-discovery.js?v=3"></script>
+  <script src="js/uniqueness-tracker.js?v=3"></script>
+  <script src="js/unified-pool-manager.js?v=3"></script>
+  <!-- Admin-Driven Generation -->
+  <script src="js/admin-reading-tracker.js?v=3"></script>
+  <!-- Background pool expansion removed - UnifiedPoolManager has built-in periodic expansion -->
+  <script src="js/strict-duplicate-prevention.js?v=3"></script>
+  <!-- WebLLM Library (Free Local LLM) -->
+  <script src="https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.46/lib/index.js"></script>
+  <!-- Transformers.js Library (Free Local LLM - Safari Compatible) -->
+  <script src="https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.1"></script>
+  <!-- Unified AI Generation -->
+  <script src="js/unified-ai-generator.js?v=3"></script>
+  
+  <!-- Initialize AI Integration (Multi-Model Free - WebLLM + Transformers.js) -->
+  <script>
+    // Initialize AI Integration with multiple free models
+    // - WebLLM (Chrome/Edge with WebGPU) - Fast, high quality
+    // - Transformers.js (Safari with WebAssembly) - Compatible, good quality
+    // - Parallel generation for speed
+    // - Model ensemble for quality
+    //
+    // To enable AI generation:
+    // AIIntegration.initialize({
+    //   webllmModel: 'Llama-2-7b-chat-hf-q4f16_1-MLC',  // Chrome/Edge
+    //   transformersModel: 'Xenova/phi-2',  // Safari
+    //   maxTokens: 200,
+    //   temperature: 0.8,
+    //   aiPercentage: 40,  // 40% AI, 60% template
+    //   enableParallelGeneration: true,  // Use multiple models in parallel
+    //   enableEnsemble: true  // Combine results for better quality
+    // });
+    //
+    // Browser Support:
+    // - Chrome 90+: WebGPU or WebAssembly
+    // - Edge 90+: WebGPU or WebAssembly
+    // - Firefox 88+: WebGPU or WebAssembly
+    // - Safari 14+: WebAssembly
+    //
+    // Note: Models will be downloaded on first use (2-4GB total)
+    // Generation is faster with parallel models
+    // Quality is better with model ensemble
+    
+    console.log('AI Integration: Ready to initialize (Multi-Model Free - WebLLM + Transformers.js)');
+  </script>
+  <!-- External JavaScript Modules -->
+  <script src="js/utils/error-handler.js?v=3"></script>
+  <script src="js/utils/security.js?v=3"></script>
+    <script src="js/utils/safe-html.js?v=3"></script>
+  <script src="js/utils/storage.js?v=3"></script>
+  <script src="js/utils/prompt-modal.js?v=3"></script>
+  <script src="js/utils/helpers.js?v=3"></script>
+  <script src="js/utils/formatters.js?v=3"></script>
+  <script src="js/utils/ui-helpers.js?v=3"></script>
+    <script src="js/utils/lazy-loader.js?v=3"></script>
+    <script src="js/utils/dependency-validator.js?v=3"></script>
+    <script src="js/utils/config.js?v=3"></script>
+    <script src="js/utils/sentry.js?v=3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@sentry/browser@7.77.0/build/bundle.min.js"></script>
+  
+  <script>
+    // Initialize Sentry
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get Sentry DSN from environment or use placeholder
+      const sentryDSN = localStorage.getItem('sentry_dsn') || '';
+      
+      if (sentryDSN) {
+        SentryModule.init({
+          dsn: sentryDSN,
+          environment: 'production',
+          release: '1.0.0',
+          tracesSampleRate: 0.1,
+          replaysSessionSampleRate: 0.1,
+          replaysOnErrorSampleRate: 1.0,
+        });
+      } else {
+        console.log('Set sentry_dsn in localStorage to enable error tracking.');
+      }
+    });
+  </script>
+  
+  <script src="js/modules/app-state.js?v=3"></script>
+  <script src="js/modules/story-timeline.js?v=3"></script>
+  <script src="js/ui/notifications.js?v=3"></script>
+  <script src="js/ui/modals.js?v=3"></script>
+  <script src="js/modules/auth.js?v=3"></script>
+  <script src="js/modules/navigation.js?v=3"></script>
+  <script src="js/modules/misc.js?v=3"></script>
+  <script src="js/modules/generation.js?v=3"></script>
+  <script src="js/modules/story-generation-control.js?v=3"></script>
+  
+
+    <!-- DOM Helpers (UZF-MSR v1.0 Rule 18) -->
+    <script src="js/utils/dom-helpers.js?v=3"></script>
+
+    <!-- System Rules Modules (UZF-MSR v1.0) -->
+    <script src="js/system/change-management-system.js?v=3"></script>
+    <script src="js/system/consolidation-optimization-engine.js?v=3"></script>
+    <script src="js/system/self-healing-system.js?v=3"></script>
+    <script src="js/system/testing-enforcement-layer.js?v=3"></script>
+    <script src="js/system/continuity-state-preservation-layer.js?v=3"></script>
+    <script src="js/system/documentation-enforcement-layer.js?v=3"></script>
+    <script src="js/system/verification-hierarchy.js?v=3"></script>
+    <script src="js/system/output-rules-enforcement.js?v=3"></script>
+    <script src="js/system/system-init.js?v=3"></script>
+  <script src="js/ui/sidebar.js?v=3"></script>
+  <script src="js/ui/stats.js?v=3"></script>
+  <script src="js/ui/dropdown.js?v=3"></script>
+  <script src="js/ui/text-size.js?v=3"></script>
+  <script src="js/modules/initialization.js?v=3"></script>
+  <script src="js/ui/keyboard-shortcuts.js?v=3"></script>
+  <!-- Fuse.js for Fuzzy Search -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+  
+  <!-- Fuzzy Search Module -->
+  <script src="js/modules/fuzzy-search.js?v=3"></script>
+  <script src="js/ui/search-ui-enhanced.js?v=3"></script>
+  <script src="js/modules/search-suggestions.js?v=3"></script>
+  
+  
+  <script src="js/modules/performance-advanced.js?v=3"></script>
+
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            })
+          .catch((error) => {
+            });
+      });
+    }
+  </script>
+  
+  <script src="js/modules/api.js?v=3"></script>
+  <script src="js/modules/branching-narrative.js?v=3"></script>
+  <script src="js/modules/dynamic-content.js?v=3"></script>
+  
+  <!-- Initialize Ever-Expanding Systems -->
+  <script>
+    // Wait for all scripts to load
+    window.addEventListener('load', () => {
+      console.log('Initializing story systems...');
+      
+      // Initialize unified pool manager
+      if (typeof UnifiedPoolManager !== 'undefined' && typeof StoryEngine !== 'undefined') {
+        UnifiedPoolManager.initialize();
+        StoryEngine.initializePoolIntegration(UnifiedPoolManager);
+        console.log('✓ Unified pool manager initialized');
+      } else {
+        console.warn('Unified pool manager not available');
+      }
+      
+      // Initialize unified AI generator
+      if (typeof UnifiedAIGenerator !== 'undefined' && typeof StoryEngine !== 'undefined') {
+        // AI will be initialized on first use
+        console.log('✓ Unified AI generator available (will initialize on first use)');
+      } else {
+        console.warn('Unified AI generator not available');
+      }
+      
+      // Initialize admin reading tracker
+      if (typeof AdminReadingTracker !== 'undefined') {
+        AdminReadingTracker.initialize();
+        console.log('✓ Admin reading tracker initialized');
+      } else {
+        console.warn('Admin reading tracker not available');
+      }
+      
+      // Initialize strict duplicate prevention
+      if (typeof StrictDuplicatePrevention !== 'undefined') {
+        StrictDuplicatePrevention.initialize();
+        console.log('✓ Strict duplicate prevention initialized');
+      } else {
+        console.warn('Strict duplicate prevention not available');
+      }
+    });
+  </script>
+</body>
+</html>

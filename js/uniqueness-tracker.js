@@ -15,6 +15,11 @@ const UniquenessTracker = (() => {
   
   // Similarity index for near-duplicate detection
   const similarityIndex = new Map();
+
+    // Content type tracking for test plan compatibility
+    const trackedParagraphs = [];
+    const trackedTitles = [];
+    const trackedChapters = [];
   
   // Configuration
   const config = {
@@ -534,11 +539,120 @@ const UniquenessTracker = (() => {
   /**
    * Clear all tracked data
    */
+
+    /**
+     * Get all tracked paragraphs
+     * @returns {Array} - Array of tracked paragraphs
+     */
+    function getTrackedParagraphs() {
+      return [...trackedParagraphs];
+    }
+
+    /**
+     * Get all tracked titles
+     * @returns {Array} - Array of tracked titles
+     */
+    function getTrackedTitles() {
+      return [...trackedTitles];
+    }
+
+    /**
+     * Get all tracked chapters
+     * @returns {Array} - Array of tracked chapters
+     */
+    function getTrackedChapters() {
+      return [...trackedChapters];
+    }
+
+    /**
+     * Add a paragraph to tracking
+     * @param {string} paragraph - Paragraph content
+     * @returns {boolean} - True if added, false if duplicate
+     */
+    function addParagraph(paragraph) {
+      const fingerprint = generateFingerprint(paragraph);
+      
+      // Check if already tracked
+      if (trackedParagraphs.includes(fingerprint)) {
+        return false;
+      }
+      
+      trackedParagraphs.push(fingerprint);
+      return true;
+    }
+
+    /**
+     * Add a title to tracking
+     * @param {string} title - Title content
+     * @returns {boolean} - True if added, false if duplicate
+     */
+    function addTitle(title) {
+      const fingerprint = generateFingerprint(title);
+      
+      // Check if already tracked
+      if (trackedTitles.includes(fingerprint)) {
+        return false;
+      }
+      
+      trackedTitles.push(fingerprint);
+      return true;
+    }
+
+    /**
+     * Add a chapter to tracking
+     * @param {string} chapter - Chapter content
+     * @returns {boolean} - True if added, false if duplicate
+     */
+    function addChapter(chapter) {
+      const fingerprint = generateFingerprint(chapter);
+      
+      // Check if already tracked
+      if (trackedChapters.includes(fingerprint)) {
+        return false;
+      }
+      
+      trackedChapters.push(fingerprint);
+      return true;
+    }
+
+    /**
+     * Check if paragraph is duplicate
+     * @param {string} paragraph - Paragraph content
+     * @returns {boolean} - True if duplicate
+     */
+    function isParagraphDuplicate(paragraph) {
+      const fingerprint = generateFingerprint(paragraph);
+      return trackedParagraphs.includes(fingerprint);
+    }
+
+    /**
+     * Check if title is duplicate
+     * @param {string} title - Title content
+     * @returns {boolean} - True if duplicate
+     */
+    function isTitleDuplicate(title) {
+      const fingerprint = generateFingerprint(title);
+      return trackedTitles.includes(fingerprint);
+    }
+
+    /**
+     * Check if chapter is duplicate
+     * @param {string} chapter - Chapter content
+     * @returns {boolean} - True if duplicate
+     */
+    function isChapterDuplicate(chapter) {
+      const fingerprint = generateFingerprint(chapter);
+      return trackedChapters.includes(fingerprint);
+    }
+
   function clearAll() {
     globalContentRegistry.clear();
     fingerprintIndex.clear();
     usageTracker.clear();
     similarityIndex.clear();
+    trackedParagraphs.length = 0;
+    trackedTitles.length = 0;
+    trackedChapters.length = 0;
     
     if (typeof localStorage !== 'undefined') {
       localStorage.removeItem('uniquenessTracker');
@@ -573,7 +687,16 @@ const UniquenessTracker = (() => {
     loadPersistedData,
     clearAll,
     updateConfig,
-    getConfig
+    getConfig,
+      getTrackedParagraphs,
+      getTrackedTitles,
+      getTrackedChapters,
+      addParagraph,
+      addTitle,
+      addChapter,
+      isParagraphDuplicate,
+      isTitleDuplicate,
+      isChapterDuplicate
   };
 })();
 

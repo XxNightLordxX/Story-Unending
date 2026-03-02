@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1 - TEST 1.1: Verify Uniqueness Tracker Initialization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .pass {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        .fail {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        .step {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-left: 3px solid #007bff;
+        }
+        .result {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #666;
+        }
+    </style>
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <h1>Phase 1 - TEST 1.1: Verify Uniqueness Tracker Initialization</h1>
+    
+    <div class="test-section">
+        <h2>Test Information</h2>
+        <p><strong>Priority:</strong> P0 - CRITICAL</p>
+        <p><strong>Estimated Time:</strong> 2 minutes</p>
+        <p><strong>Prerequisites:</strong> None</p>
+    </div>
+    
+    <div id="test-results"></div>
+    
+    <script src="js/uniqueness-tracker.js?v=4"></script>
+    <script>
+        const resultsDiv = document.getElementById('test-results');
+        let allPassed = true;
+        
+        function addStep(stepNumber, description, expected, actual, passed) {
+            const stepDiv = document.createElement('div');
+            stepDiv.className = 'step';
+            
+            const resultClass = passed ? 'success' : 'error';
+            const resultText = passed ? '✓ PASS' : '✗ FAIL';
+            
+            stepDiv.innerHTML = `
+                <strong>Step ${stepNumber}:</strong> ${description}<br>
+                <span class="result ${resultClass}">${resultText}</span><br>
+                <em>Expected:</em> ${expected}<br>
+                <em>Actual:</em> ${actual}
+            `;
+            
+            resultsDiv.appendChild(stepDiv);
+            
+            if (!passed) {
+                allPassed = false;
+            }
+        }
+        
+        // Step 1: Check if UniquenessTracker object exists
+        const step1Result = typeof window.UniquenessTracker;
+        const step1Passed = step1Result === 'object';
+        addStep(1, 'Type of window.UniquenessTracker', '"object"', `"${step1Result}"`, step1Passed);
+        
+        // Step 2: Check if tracker has methods
+        const step2Result = Object.keys(window.UniquenessTracker).length;
+        const step2Passed = step2Result > 0;
+        addStep(2, 'Number of methods in UniquenessTracker', '> 0', step2Result, step2Passed);
+        
+        // Step 3: Check getTrackedParagraphs returns empty array
+        const step3Result = window.UniquenessTracker.getTrackedParagraphs();
+        const step3Passed = Array.isArray(step3Result) && step3Result.length === 0;
+        addStep(3, 'getTrackedParagraphs() returns empty array', '[] (empty array)', 
+                `Array: ${Array.isArray(step3Result)}, Length: ${step3Result.length}`, step3Passed);
+        
+        // Step 4: Check getTrackedTitles returns empty array
+        const step4Result = window.UniquenessTracker.getTrackedTitles();
+        const step4Passed = Array.isArray(step4Result) && step4Result.length === 0;
+        addStep(4, 'getTrackedTitles() returns empty array', '[] (empty array)', 
+                `Array: ${Array.isArray(step4Result)}, Length: ${step4Result.length}`, step4Passed);
+        
+        // Step 5: Check getTrackedChapters returns empty array
+        const step5Result = window.UniquenessTracker.getTrackedChapters();
+        const step5Passed = Array.isArray(step5Result) && step5Result.length === 0;
+        addStep(5, 'getTrackedChapters() returns empty array', '[] (empty array)', 
+                `Array: ${Array.isArray(step5Result)}, Length: ${step5Result.length}`, step5Passed);
+        
+        // Summary
+        const summaryDiv = document.createElement('div');
+        summaryDiv.className = `test-section ${allPassed ? 'pass' : 'fail'}`;
+        summaryDiv.innerHTML = `
+            <h2>Test Summary</h2>
+            <p><strong>Overall Result:</strong> ${allPassed ? '✓ PASS' : '✗ FAIL'}</p>
+            <p><strong>Steps Passed:</strong> ${allPassed ? '5/5' : 'Some steps failed'}</p>
+            <p><strong>Verification Points:</strong></p>
+            <ul>
+                <li>${step1Passed ? '✓' : '✗'} UniquenessTracker object exists</li>
+                <li>${step2Passed ? '✓' : '✗'} Tracker has methods defined</li>
+                <li>${step3Passed ? '✓' : '✗'} Paragraph tracking array initialized</li>
+                <li>${step4Passed ? '✓' : '✗'} Title tracking array initialized</li>
+                <li>${step5Passed ? '✓' : '✗'} Chapter tracking array initialized</li>
+            </ul>
+        `;
+        resultsDiv.appendChild(summaryDiv);
+        
+        // Failure Actions
+        if (!allPassed) {
+            const failureDiv = document.createElement('div');
+            failureDiv.className = 'test-section fail';
+            failureDiv.innerHTML = `
+                <h2>Failure Actions</h2>
+                <p>If any step fails:</p>
+                <ol>
+                    <li>Check console for errors</li>
+                    <li>Verify js/uniqueness-tracker.js is loaded</li>
+                    <li>Verify initialization code in initialization.js</li>
+                    <li>Fix errors before proceeding</li>
+                </ol>
+            `;
+            resultsDiv.appendChild(failureDiv);
+        }
+    </script>
+</body>
+</html>

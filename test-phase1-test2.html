@@ -57,7 +57,6 @@
             font-size: 12px;
         }
     </style>
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
 </head>
 <body>
     <h1>Phase 1 - TEST 1.2: Generate 10 Chapters and Verify Tracking</h1>
@@ -119,11 +118,30 @@
             
             log('Starting TEST 1.2...');
             
+            // Check if required modules are loaded
+            if (typeof window.StoryEngine === 'undefined') {
+                log('ERROR: StoryEngine is not loaded!');
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'test-section fail';
+                errorDiv.innerHTML = '<h2>Test Failed</h2><p>StoryEngine is not loaded. Please refresh the page and try again.</p>';
+                resultsDiv.appendChild(errorDiv);
+                resetBtn.disabled = false;
+                return;
+            }
+            
+            if (typeof window.UniquenessTracker === 'undefined') {
+                log('ERROR: UniquenessTracker is not loaded!');
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'test-section fail';
+                errorDiv.innerHTML = '<h2>Test Failed</h2><p>UniquenessTracker is not loaded. Please refresh the page and try again.</p>';
+                resultsDiv.appendChild(errorDiv);
+                resetBtn.disabled = false;
+                return;
+            }
+            
             try {
                 // Step 1: Login as admin
                 log('Step 1: Login as admin...');
-                // Note: In a real test, we would login here
-                // For this test, we'll skip actual login and proceed
                 addStep(1, 'Login as admin', 'Login successful', 'Skipped for testing', true);
                 
                 // Step 2: Navigate to Director Panel
@@ -144,7 +162,7 @@
                 // Generate 10 chapters
                 for (let i = 1; i <= 10; i++) {
                     log(`Generating chapter ${i}...`);
-                    const chapter = StoryEngine.generateChapter();
+                    const chapter = window.StoryEngine.generateChapter();
                     log(`Chapter ${i} generated: ${chapter.title}`);
                 }
                 
@@ -205,8 +223,12 @@
         }
         
         function resetTest() {
-            window.UniquenessTracker.clearAll();
-            StoryEngine.reset();
+            if (typeof window.UniquenessTracker !== 'undefined') {
+                window.UniquenessTracker.clearAll();
+            }
+            if (typeof window.StoryEngine !== 'undefined') {
+                window.StoryEngine.reset();
+            }
             resultsDiv.innerHTML = '';
             logDiv.innerHTML = '';
             startBtn.disabled = false;

@@ -38,7 +38,7 @@
           `;
 
             // Add styles if not already present
-            if (!document.getElementById('prompt-modal-styles')) {
+            if (!DOMHelpers.safeGetElement('prompt-modal-styles')) {
                 const styles = document.createElement('style');
                 styles.id = 'prompt-modal-styles';
                 styles.textContent = `

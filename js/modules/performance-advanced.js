@@ -90,7 +90,7 @@
      * @returns {Object} Virtual scroll instance
      */
     init(containerId, items, options = {}) {
-      const container = document.getElementById(containerId);
+      const container = DOMHelpers.safeGetElement(containerId);
       if (!container) {
         // Error logged: console.error(`Container ${containerId} not found`);
         return null;

@@ -194,8 +194,8 @@
     // Update chapter display
     const chapterContent = Storage.getChapterContent(AppStateModule.AppState.currentChapter);
     if (chapterContent) {
-      document.getElementById('chapter-content').innerHTML = chapterContent.content;
-      document.getElementById('chapter-title').textContent = chapterContent.title;
+      DOMHelpers.safeSetText('chapter-content', chapterContent.content);
+      DOMHelpers.safeSetText('chapter-title', chapterContent.title);
     }
     
     // Update stats
@@ -203,9 +203,9 @@
     
     // Update sidebar state
     if (AppStateModule.AppState.sidebarOpen) {
-      document.getElementById('sidebar').classList.add('open');
+      DOMHelpers.safeToggleClass('sidebar', 'open', true);
     } else {
-      document.getElementById('sidebar').classList.remove('open');
+      DOMHelpers.safeToggleClass('sidebar', 'open', false);
     }
   }
 

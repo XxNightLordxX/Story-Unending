@@ -30,7 +30,7 @@ const UIHelpers = (() => {
         document.querySelectorAll(tabContentSelector).forEach(content => {
             content.classList.remove('active');
         });
-        const tabContent = document.getElementById('tab-' + tabName);
+        const tabContent = DOMHelpers.safeGetElement('tab-' + tabName);
         if (tabContent) {
             tabContent.classList.add('active');
         }

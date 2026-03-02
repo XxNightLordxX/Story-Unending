@@ -1,0 +1,155 @@
+{
+  "testName": "TEST 2.1: Verify Chapter-to-Chapter Continuity",
+  "totalTests": 9,
+  "passedTests": 0,
+  "failedTests": 10,
+  "elapsedTime": "0m 0s",
+  "results": [
+    {
+      "test": "Chapter 1 → Chapter 2",
+      "status": "FAIL",
+      "details": {
+        "score": 0,
+        "issues": [],
+        "analysis": {
+          "lastParagraph": "The keeper rejected into the night as the ancient power surged through them, marking the moment C1P1...",
+          "firstParagraph": "The shadow transcended into destiny as the ancient power surged through them, marking the moment C2P...",
+          "hasTransition": false,
+          "hasAbruptEnding": false,
+          "hasLogicalFlow": false
+        }
+      }
+    },
+    {
+      "test": "Chapter 2 → Chapter 3",
+      "status": "FAIL",
+      "details": {
+        "score": 0,
+        "issues": [],
+        "analysis": {
+          "lastParagraph": "The warrior unleashed beyond imagination as the ancient power surged through them, marking the momen...",
+          "firstParagraph": "The sorcerer defied into destiny as the ancient power surged through them, marking the moment C3P0S0...",
+          "hasTransition": false,
+          "hasAbruptEnding": false,
+          "hasLogicalFlow": false
+        }
+      }
+    },
+    {
+      "test": "Chapter 3 → Chapter 4",
+      "status": "FAIL",
+      "details": {
+        "score": 0,
+        "issues": [],
+        "analysis": {
+          "lastParagraph": "The shadow challenged across the cosmos as the ancient power surged through them, marking the moment...",
+          "firstParagraph": "The light embraced across existence as the ancient power surged through them, marking the moment C4P...",
+          "hasTransition": false,
+          "hasAbruptEnding": false,
+          "hasLogicalFlow": false
+        }
+      }
+    },
+    {
+      "test": "Chapter 4 → Chapter 5",
+      "status": "FAIL",
+      "details": {
+        "score": 0,
+        "issues": [],
+        "analysis": {
+          "lastParagraph": "He fought into the light as the ancient power surged through them, marking the moment C4P9S0 in the ...",
+          "firstParagraph": "The sentinel disappeared across the centuries as the ancient power surged through them, marking the ...",
+          "hasTransition": false,
+          "hasAbruptEnding": false,
+          "hasLogicalFlow": false
+        }
+      }
+    },
+    {
+      "test": "Chapter 5 → Chapter 6",
+      "status": "FAIL",
+      "details": {
+        "score": 0,
+        "issues": [],
+        "analysis": {
+          "lastParagraph": "The ancient one summoned into the night as the ancient power surged through them, marking the moment...",
+          "firstParagraph": "The prophecy appeared beyond the veil as the ancient power surged through them, marking the moment C...",
+          "hasTransition": false,
+          "hasAbruptEnding": false,
+          "hasLogicalFlow": false
+        }
+      }
+    },
+    {
+      "test": "Chapter 6 → Chapter 7",
+      "status": "FAIL",
+      "details": {
+        "score": 0,
+        "issues": [],
+        "analysis": {
+          "lastParagraph": "The beast whispered into the night as the ancient power surged through them, marking the moment C6P9...",
+          "firstParagraph": "The keeper walked through the mist as the ancient power surged through them, marking the moment C7P0...",
+          "hasTransition": false,
+          "hasAbruptEnding": false,
+          "hasLogicalFlow": false
+        }
+      }
+    },
+    {
+      "test": "Chapter 7 → Chapter 8",
+      "status": "FAIL",
+      "details": {
+        "score": 0,
+        "issues": [],
+        "analysis": {
+          "lastParagraph": "The spirit whispered through eternity as the ancient power surged through them, marking the moment C...",
+          "firstParagraph": "The beast conquered across the battlefield as the ancient power surged through them, marking the mom...",
+          "hasTransition": false,
+          "hasAbruptEnding": false,
+          "hasLogicalFlow": false
+        }
+      }
+    },
+    {
+      "test": "Chapter 8 → Chapter 9",
+      "status": "FAIL",
+      "details": {
+        "score": 0,
+        "issues": [],
+        "analysis": {
+          "lastParagraph": "The guardian rejected into the night as the ancient power surged through them, marking the moment C8...",
+          "firstParagraph": "The beast ran into the light as the ancient power surged through them, marking the moment C9P0S0 in ...",
+          "hasTransition": false,
+          "hasAbruptEnding": false,
+          "hasLogicalFlow": false
+        }
+      }
+    },
+    {
+      "test": "Chapter 9 → Chapter 10",
+      "status": "FAIL",
+      "details": {
+        "score": 0,
+        "issues": [],
+        "analysis": {
+          "lastParagraph": "The light disappeared beyond imagination as the ancient power surged through them, marking the momen...",
+          "firstParagraph": "He ascended through eternity as the ancient power surged through them, marking the moment C10P0S0 in...",
+          "hasTransition": false,
+          "hasAbruptEnding": false,
+          "hasLogicalFlow": false
+        }
+      }
+    },
+    {
+      "test": "Overall continuity assessment",
+      "status": "FAIL",
+      "details": {
+        "averageScore": "0.00",
+        "totalIssues": 0,
+        "uniqueIssues": []
+      }
+    }
+  ],
+  "errors": [],
+  "passed": false
+}

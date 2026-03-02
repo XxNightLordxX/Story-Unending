@@ -1,0 +1,44 @@
+{
+  "testName": "TEST 2.5: Verify Paragraph Length",
+  "totalTests": 4,
+  "passedTests": 2,
+  "failedTests": 2,
+  "elapsedTime": "0m 0s",
+  "results": [
+    {
+      "test": "Average paragraph length between 3-5 sentences",
+      "status": "FAIL",
+      "details": {
+        "averageLength": "5.01",
+        "expectedRange": "3-5 sentences"
+      }
+    },
+    {
+      "test": "No paragraphs > 10 sentences",
+      "status": "PASS",
+      "details": {
+        "longParagraphs": 0,
+        "percentage": "0.00%"
+      }
+    },
+    {
+      "test": "No paragraphs < 2 sentences (except dialogue)",
+      "status": "PASS",
+      "details": {
+        "shortParagraphs": 0,
+        "percentage": "0.00%"
+      }
+    },
+    {
+      "test": "Paragraph variety maintained",
+      "status": "FAIL",
+      "details": {
+        "uniqueLengths": 5,
+        "totalParagraphs": 130,
+        "varietyRatio": "3.85%"
+      }
+    }
+  ],
+  "errors": [],
+  "passed": false
+}

@@ -1,4 +1,7 @@
 /**
+ * Updated to use DOM Helpers for null safety (UZF-MSR v1.0 Rule 18)
+ */
+/**
  * Miscellaneous functions
  * Extracted from index.html
  */
@@ -46,7 +49,7 @@ const getTotalChaptersShouldExist = () => {
     };
 
 const addSidebarItem = (chapter) => {
-      const list = document.getElementById('sidebarList');
+      const list = DOMHelpers.safeGetElement('sidebarList');
       if (!list) { console.warn('sidebarList not found, skipping sidebar item'); return; }
       const item = document.createElement('div');
       item.className = 'sidebar-item';
@@ -64,7 +67,7 @@ const addSidebarItem = (chapter) => {
     };
 
 const updateBadge = () => {
-      const badge = document.getElementById('badgeCount');
+      const badge = DOMHelpers.safeGetElement('badgeCount');
       if (badge) {
         badge.textContent = AppState.totalGenerated;
       }
@@ -86,7 +89,7 @@ const updateStatsBar = () => {
     };
 
 const updateTextSizeInput = () => {
-      const input = document.getElementById('textSizeInput');
+      const input = DOMHelpers.safeGetElement('textSizeInput');
       if (input) {
         input.value = window.currentTextSize;
       }
@@ -123,10 +126,10 @@ const catchUpAndStart = () => {
             }, nextChapterIn);
           } else {
             // Update UI to show paused state
-            const pauseIcon = document.getElementById('pauseIcon');
-            const pauseLabel = document.getElementById('pauseLabel');
-            const pauseBtn = document.getElementById('pauseBtn');
-            const speedDisplay = document.getElementById('speedCurrentDisplay');
+            const pauseIcon = DOMHelpers.safeGetElement('pauseIcon');
+            const pauseLabel = DOMHelpers.safeGetElement('pauseLabel');
+            const pauseBtn = DOMHelpers.safeGetElement('pauseBtn');
+            const speedDisplay = DOMHelpers.safeGetElement('speedCurrentDisplay');
             
             if (pauseIcon) pauseIcon.textContent = '▶️';
             if (pauseLabel) pauseLabel.textContent = 'Resume Generation';
@@ -181,7 +184,7 @@ const showChapter = (num) => {
 
         AppState.currentChapter = num;
       const chapter = AppState.chapters[num - 1];
-      const container = document.getElementById('storyContainer');
+      const container = DOMHelpers.safeGetElement('storyContainer');
       
       
       if (!container) {
@@ -245,9 +248,9 @@ const showChapter = (num) => {
       if (activeItem) activeItem.scrollIntoView({ block: 'nearest' });
 
       // Update topbar
-      const navCurrentTop = document.getElementById('navCurrentTop');
+      const navCurrentTop = DOMHelpers.safeGetElement('navCurrentTop');
       if (navCurrentTop) navCurrentTop.textContent = `Ch. ${num}`;
-      const arcDisplay = document.getElementById('arcDisplay');
+      const arcDisplay = DOMHelpers.safeGetElement('arcDisplay');
       if (arcDisplay) arcDisplay.textContent = `Arc: ${chapter.arc}`;
 
       // Update stats to reflect this chapter's state
@@ -268,17 +271,17 @@ const updateNavButtons = () => {
       const total = AppState.totalGenerated;
 
       // Bottom nav
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
+      const prevBtn = DOMHelpers.safeGetElement('prevBtn');
+      const nextBtn = DOMHelpers.safeGetElement('nextBtn');
 
       if (prevBtn) {
         if (num <= 1) {
           prevBtn.classList.add('disabled');
-          const prevTitle = document.getElementById('prevTitle');
+          const prevTitle = DOMHelpers.safeGetElement('prevTitle');
           if (prevTitle) prevTitle.textContent = '';
         } else {
           prevBtn.classList.remove('disabled');
-          const prevTitle = document.getElementById('prevTitle');
+          const prevTitle = DOMHelpers.safeGetElement('prevTitle');
           if (prevTitle) prevTitle.textContent = AppState.chapters[num - 2].title;
         }
       }
@@ -286,18 +289,18 @@ const updateNavButtons = () => {
       if (nextBtn) {
         if (num >= total) {
           nextBtn.classList.add('disabled');
-          const nextTitle = document.getElementById('nextTitle');
+          const nextTitle = DOMHelpers.safeGetElement('nextTitle');
           if (nextTitle) nextTitle.textContent = 'Waiting for next chapter...';
         } else {
           nextBtn.classList.remove('disabled');
-          const nextTitle = document.getElementById('nextTitle');
+          const nextTitle = DOMHelpers.safeGetElement('nextTitle');
           if (nextTitle) nextTitle.textContent = AppState.chapters[num].title;
         }
       }
 
       // Top nav
-      const prevBtnTop = document.getElementById('prevBtnTop');
-      const nextBtnTop = document.getElementById('nextBtnTop');
+      const prevBtnTop = DOMHelpers.safeGetElement('prevBtnTop');
+      const nextBtnTop = DOMHelpers.safeGetElement('nextBtnTop');
       if (prevBtnTop) prevBtnTop.disabled = num <= 1;
       if (nextBtnTop) nextBtnTop.disabled = num >= total;
     }
@@ -307,7 +310,7 @@ const updateDropdownStats = () => {
       const isLatest = AppState.currentChapter === AppState.totalGenerated;
 
       // Update chapter indicator
-      const chapterIndicator = document.getElementById('ddChapterIndicator');
+      const chapterIndicator = DOMHelpers.safeGetElement('ddChapterIndicator');
       if (chapterIndicator) {
         if (isLatest) {
           chapterIndicator.innerHTML = `<span class="dd-chapter-badge latest">📖 Latest — Ch. ${AppState.currentChapter}</span>`;
@@ -317,80 +320,80 @@ const updateDropdownStats = () => {
       }
 
       // Show/hide jump to latest button
-      const jumpBtn = document.getElementById('ddJumpLatest');
+      const jumpBtn = DOMHelpers.safeGetElement('ddJumpLatest');
       if (jumpBtn) jumpBtn.style.display = isLatest ? 'none' : 'flex';
 
-      const ddLevel = document.getElementById('ddLevel');
+      const ddLevel = DOMHelpers.safeGetElement('ddLevel');
       if (ddLevel) ddLevel.textContent = mc.level;
-      const ddLevelBottom = document.getElementById('ddLevelBottom');
+      const ddLevelBottom = DOMHelpers.safeGetElement('ddLevelBottom');
       if (ddLevelBottom) ddLevelBottom.textContent = mc.level;
-      const ddBarHp = document.getElementById('ddBarHp');
+      const ddBarHp = DOMHelpers.safeGetElement('ddBarHp');
       if (ddBarHp) ddBarHp.style.width = (mc.hp / mc.maxHp * 100) + '%';
-      const ddHpVal = document.getElementById('ddHpVal');
+      const ddHpVal = DOMHelpers.safeGetElement('ddHpVal');
       if (ddHpVal) ddHpVal.textContent = `${mc.hp}/${mc.maxHp}`;
-      const ddBarSp = document.getElementById('ddBarSp');
+      const ddBarSp = DOMHelpers.safeGetElement('ddBarSp');
       if (ddBarSp) ddBarSp.style.width = (mc.sp / mc.maxSp * 100) + '%';
-      const ddSpVal = document.getElementById('ddSpVal');
+      const ddSpVal = DOMHelpers.safeGetElement('ddSpVal');
       if (ddSpVal) ddSpVal.textContent = `${mc.sp}/${mc.maxSp}`;
-      const ddBarMp = document.getElementById('ddBarMp');
+      const ddBarMp = DOMHelpers.safeGetElement('ddBarMp');
       if (ddBarMp) ddBarMp.style.width = (mc.mp / mc.maxMp * 100) + '%';
-      const ddMpVal = document.getElementById('ddMpVal');
+      const ddMpVal = DOMHelpers.safeGetElement('ddMpVal');
       if (ddMpVal) ddMpVal.textContent = `${mc.mp}/${mc.maxMp}`;
-      const ddBarBlood = document.getElementById('ddBarBlood');
+      const ddBarBlood = DOMHelpers.safeGetElement('ddBarBlood');
       if (ddBarBlood) ddBarBlood.style.width = (mc.bloodEssence / mc.maxBloodEssence * 100) + '%';
-      const ddBloodVal = document.getElementById('ddBloodVal');
+      const ddBloodVal = DOMHelpers.safeGetElement('ddBloodVal');
       if (ddBloodVal) ddBloodVal.textContent = `${mc.bloodEssence}/${mc.maxBloodEssence}`;
-      const ddStr = document.getElementById('ddStr');
+      const ddStr = DOMHelpers.safeGetElement('ddStr');
       if (ddStr) ddStr.textContent = mc.strength;
-      const ddAgi = document.getElementById('ddAgi');
+      const ddAgi = DOMHelpers.safeGetElement('ddAgi');
       if (ddAgi) ddAgi.textContent = mc.agility;
-      const ddInt = document.getElementById('ddInt');
+      const ddInt = DOMHelpers.safeGetElement('ddInt');
       if (ddInt) ddInt.textContent = mc.intelligence;
-      const ddVit = document.getElementById('ddVit');
+      const ddVit = DOMHelpers.safeGetElement('ddVit');
       if (ddVit) ddVit.textContent = mc.vitality;
-      const ddEnd = document.getElementById('ddEnd');
+      const ddEnd = DOMHelpers.safeGetElement('ddEnd');
       if (ddEnd) ddEnd.textContent = mc.endurance;
-      const ddLuck = document.getElementById('ddLuck');
+      const ddLuck = DOMHelpers.safeGetElement('ddLuck');
       if (ddLuck) ddLuck.textContent = mc.luck;
-      const ddBloodlust = document.getElementById('ddBloodlust');
+      const ddBloodlust = DOMHelpers.safeGetElement('ddBloodlust');
       if (ddBloodlust) ddBloodlust.textContent = mc.bloodlust;
-      const ddDark = document.getElementById('ddDark');
+      const ddDark = DOMHelpers.safeGetElement('ddDark');
       if (ddDark) ddDark.textContent = mc.darkAffinity;
-      const ddRegen = document.getElementById('ddRegen');
+      const ddRegen = DOMHelpers.safeGetElement('ddRegen');
       if (ddRegen) ddRegen.textContent = mc.regeneration;
-      const ddDom = document.getElementById('ddDom');
+      const ddDom = DOMHelpers.safeGetElement('ddDom');
       if (ddDom) ddDom.textContent = mc.domination;
-      const ddAtk = document.getElementById('ddAtk');
+      const ddAtk = DOMHelpers.safeGetElement('ddAtk');
       if (ddAtk) ddAtk.textContent = mc.attackPower;
-      const ddDef = document.getElementById('ddDef');
+      const ddDef = DOMHelpers.safeGetElement('ddDef');
       if (ddDef) ddDef.textContent = mc.defense;
-      const ddCrit = document.getElementById('ddCrit');
+      const ddCrit = DOMHelpers.safeGetElement('ddCrit');
       if (ddCrit) ddCrit.textContent = mc.criticalRate + '%';
-      const ddEva = document.getElementById('ddEva');
+      const ddEva = DOMHelpers.safeGetElement('ddEva');
       if (ddEva) ddEva.textContent = mc.evasion + '%';
-      const ddKarma = document.getElementById('ddKarma');
+      const ddKarma = DOMHelpers.safeGetElement('ddKarma');
       if (ddKarma) ddKarma.textContent = mc.karma;
-      const ddInstinct = document.getElementById('ddInstinct');
+      const ddInstinct = DOMHelpers.safeGetElement('ddInstinct');
       if (ddInstinct) ddInstinct.textContent = mc.instinct;
-      const ddWill = document.getElementById('ddWill');
+      const ddWill = DOMHelpers.safeGetElement('ddWill');
       if (ddWill) ddWill.textContent = mc.willpower;
-      const ddPresence = document.getElementById('ddPresence');
+      const ddPresence = DOMHelpers.safeGetElement('ddPresence');
       if (ddPresence) ddPresence.textContent = mc.presence;
-      const ddGold = document.getElementById('ddGold');
+      const ddGold = DOMHelpers.safeGetElement('ddGold');
       if (ddGold) ddGold.textContent = mc.gold.toLocaleString();
-      const ddExtract = document.getElementById('ddExtract');
+      const ddExtract = DOMHelpers.safeGetElement('ddExtract');
       if (ddExtract) ddExtract.textContent = mc.extractionCount;
-      const ddKills = document.getElementById('ddKills');
+      const ddKills = DOMHelpers.safeGetElement('ddKills');
       if (ddKills) ddKills.textContent = mc.killCount;
-      const ddBosses = document.getElementById('ddBosses');
+      const ddBosses = DOMHelpers.safeGetElement('ddBosses');
       if (ddBosses) ddBosses.textContent = mc.bossesDefeated;
-      const ddDungeons = document.getElementById('ddDungeons');
+      const ddDungeons = DOMHelpers.safeGetElement('ddDungeons');
       if (ddDungeons) ddDungeons.textContent = mc.dungeonsCleared;
-      const ddLocation = document.getElementById('ddLocation');
+      const ddLocation = DOMHelpers.safeGetElement('ddLocation');
       if (ddLocation) ddLocation.textContent = mc.currentLocation;
-      const ddChapters = document.getElementById('ddChapters');
+      const ddChapters = DOMHelpers.safeGetElement('ddChapters');
       if (ddChapters) ddChapters.textContent = `${AppState.currentChapter} / ${AppState.totalGenerated}`;
-      const ddWords = document.getElementById('ddWords');
+      const ddWords = DOMHelpers.safeGetElement('ddWords');
       if (ddWords) ddWords.textContent = tracker.totalWords.toLocaleString();
     }
 
@@ -414,7 +417,7 @@ const getTypeIcon = (type) => {
     }
 
 const sendResetEmail = () => {
-      const email = document.getElementById('resetEmail').value.trim();
+      const email = DOMHelpers.safeGetElement('resetEmail').value.trim();
       if (!email || !email.includes('@')) {
         safeShowNotification('combat-notif', '❌ Error', 'Please enter a valid email address.');
         return;
@@ -434,21 +437,21 @@ const sendResetEmail = () => {
       Storage.setItem('ese_resetPending', user.username);
 
       // Show success screen
-      document.getElementById('resetStep1').style.display = 'none';
-      document.getElementById('resetStep2').style.display = 'block';
-      document.getElementById('resetEmailDisplay').textContent = email;
+      DOMHelpers.safeGetElement('resetStep1').style.display = 'none';
+      DOMHelpers.safeGetElement('resetStep2').style.display = 'block';
+      DOMHelpers.safeSetText('resetEmailDisplay', email);
 
       safeShowNotification('level-notif', '📧 Email Sent', `Reset link sent to ${email}`);
     }
 
 const simulateResetLink = () => {
       // Simulate clicking the email link
-      document.getElementById('resetStep2').style.display = 'none';
-      document.getElementById('resetStep3').style.display = 'block';
+      DOMHelpers.safeGetElement('resetStep2').style.display = 'none';
+      DOMHelpers.safeGetElement('resetStep3').style.display = 'block';
     }
 
 const resetPassword = () => {
-      const newPassword = document.getElementById('resetNewPassword').value;
+      const newPassword = DOMHelpers.safeGetElement('resetNewPassword').value;
 
       if (!newPassword || newPassword.length < 4) {
         safeShowNotification('combat-notif', '❌ Error', 'Password must be at least 4 characters.');
@@ -484,8 +487,8 @@ const resetPassword = () => {
       Storage.removeItem('ese_resetPending');
 
       // Show success screen
-      document.getElementById('resetStep3').style.display = 'none';
-      document.getElementById('resetStep4').style.display = 'block';
+      DOMHelpers.safeGetElement('resetStep3').style.display = 'none';
+      DOMHelpers.safeGetElement('resetStep4').style.display = 'block';
 
       safeShowNotification('level-notif', '✅ Password Reset', 'Your password has been updated!');
     }
@@ -494,10 +497,10 @@ const logout = () => {
       saveProgress();
       AppState.currentUser = null;
       AppState.isAdmin = false;
-      document.getElementById('dropdownAuthSection').style.display = 'block';
-      document.getElementById('dropdownUserSection').style.display = 'none';
-      document.getElementById('dropdownDirectorSection').style.display = 'none';
-      document.getElementById('dropdownUserInfo').classList.remove('admin-info');
+      DOMHelpers.safeGetElement('dropdownAuthSection').style.display = 'block';
+      DOMHelpers.safeGetElement('dropdownUserSection').style.display = 'none';
+      DOMHelpers.safeGetElement('dropdownDirectorSection').style.display = 'none';
+      DOMHelpers.safeToggleClass('dropdownUserInfo', 'admin-info', false);
       Storage.removeItem('ese_currentUser');
       safeShowNotification('chapter-notif', '👋 Logged Out', 'See you next time!');
     }
@@ -535,14 +538,14 @@ const setChapterSpeed = (ms) => {
 
       // Reset pause display if speed changed while paused
       if (AppState.paused) {
-        document.getElementById('speedCurrentDisplay').innerHTML = `<strong style="color:#f87171;">⏸️ PAUSED</strong> <span style="color:rgba(255,255,255,0.4);font-size:11px;">(${formatSpeed(ms)} when resumed)</span>`;
+        DOMHelpers.safeGetElement('speedCurrentDisplay').innerHTML = `<strong style="color:#f87171;">⏸️ PAUSED</strong> <span style="color:rgba(255,255,255,0.4);font-size:11px;">(${formatSpeed(ms)} when resumed)</span>`;
       }
 
       safeShowNotification('level-notif', '⏱️ Speed Changed', `New chapter every ${formatSpeed(ms)}${AppState.paused ? ' (paused)' : ''}`);
     }
 
 const setCustomSpeed = () => {
-      const seconds = parseInt(document.getElementById('customSpeedInput').value);
+      const seconds = parseInt(DOMHelpers.safeGetElement('customSpeedInput').value);
       if (!seconds || seconds < 1) {
         safeShowNotification('combat-notif', '❌ Error', 'Enter a valid number of seconds (min: 1)');
         return;
@@ -552,7 +555,7 @@ const setCustomSpeed = () => {
         return;
       }
       setChapterSpeed(seconds * 1000);
-      document.getElementById('customSpeedInput').value = '';
+      DOMHelpers.safeGetElement('customSpeedInput').value = '';
     }
 
 const formatSpeed = (ms) => {
@@ -562,7 +565,7 @@ const formatSpeed = (ms) => {
     }
 
 const updateSpeedDisplay = () => {
-      const display = document.getElementById('speedValueDisplay');
+      const display = DOMHelpers.safeGetElement('speedValueDisplay');
       if (display) display.textContent = formatSpeed(CHAPTER_INTERVAL_MS);
     }
 
@@ -574,9 +577,9 @@ const highlightActiveSpeed = () => {
 
 const toggleDirectorMode = () => {
       directorMode = !directorMode;
-      const directorScreen = document.getElementById('directorScreen');
-      const mainContent = document.getElementById('mainContent');
-      const sidebar = document.getElementById('sidebar');
+      const directorScreen = DOMHelpers.safeGetElement('directorScreen');
+      const mainContent = DOMHelpers.safeGetElement('mainContent');
+      const sidebar = DOMHelpers.safeGetElement('sidebar');
       const topbar = document.querySelector('.topbar');
 
       if (directorMode) {
@@ -599,14 +602,14 @@ const toggleDirectorMode = () => {
     }
 
 const showDirectorModeToggle = () => {
-      const toggleHint = document.getElementById('duiToggleHint');
+      const toggleHint = DOMHelpers.safeGetElement('duiToggleHint');
       if (toggleHint) {
         toggleHint.style.display = 'block';
       }
     }
 
 const hideDirectorModeToggle = () => {
-      const toggleHint = document.getElementById('duiToggleHint');
+      const toggleHint = DOMHelpers.safeGetElement('duiToggleHint');
       if (toggleHint) {
         toggleHint.style.display = 'none';
       }
@@ -619,7 +622,7 @@ const toggleDirectorModeFromUser = () => {
     }
 
 const toggleSection = (sectionId) => {
-      const section = document.getElementById(sectionId);
+      const section = DOMHelpers.safeGetElement(sectionId);
       const button = section.previousElementSibling;
       const isHidden = section.style.display === 'none' || section.style.display === '';
       
@@ -629,9 +632,9 @@ const toggleSection = (sectionId) => {
 
 const toggleStatusScreen = () => {
       statusScreenOpen = !statusScreenOpen;
-      const statusScreen = document.getElementById('statusScreen');
-      const mainContent = document.getElementById('mainContent');
-      const sidebar = document.getElementById('sidebar');
+      const statusScreen = DOMHelpers.safeGetElement('statusScreen');
+      const mainContent = DOMHelpers.safeGetElement('mainContent');
+      const sidebar = DOMHelpers.safeGetElement('sidebar');
       const topbar = document.querySelector('.topbar');
 
       if (statusScreenOpen) {
@@ -660,44 +663,44 @@ const updateStatusScreen = () => {
       const mc = currentChapter.mcSnapshot;
       
       // Update character info
-      document.getElementById('statusLevel').textContent = mc.level;
-      document.getElementById('statusExtractions').textContent = mc.extractionCount || 0;
+      DOMHelpers.safeSetText('statusLevel', mc.level);
+      DOMHelpers.safeSetText('statusExtractions', mc.extractionCount || 0);
       
       // Update core stats
-      document.getElementById('statusHP').textContent = mc.hp;
-      document.getElementById('statusSP').textContent = mc.sp;
-      document.getElementById('statusMP').textContent = mc.mp;
-      document.getElementById('statusBloodEssence').textContent = mc.bloodEssence;
+      DOMHelpers.safeSetText('statusHP', mc.hp);
+      DOMHelpers.safeSetText('statusSP', mc.sp);
+      DOMHelpers.safeSetText('statusMP', mc.mp);
+      DOMHelpers.safeSetText('statusBloodEssence', mc.bloodEssence);
       
       // Update primary stats
-      document.getElementById('statusSTR').textContent = mc.strength;
-      document.getElementById('statusAGI').textContent = mc.agility;
-      document.getElementById('statusINT').textContent = mc.intelligence;
-      document.getElementById('statusVIT').textContent = mc.vitality;
-      document.getElementById('statusEND').textContent = mc.endurance;
-      document.getElementById('statusLUCK').textContent = mc.luck;
+      DOMHelpers.safeSetText('statusSTR', mc.strength);
+      DOMHelpers.safeSetText('statusAGI', mc.agility);
+      DOMHelpers.safeSetText('statusINT', mc.intelligence);
+      DOMHelpers.safeSetText('statusVIT', mc.vitality);
+      DOMHelpers.safeSetText('statusEND', mc.endurance);
+      DOMHelpers.safeSetText('statusLUCK', mc.luck);
       
       // Update vampire stats
-      document.getElementById('statusBloodlust').textContent = mc.bloodlust;
-      document.getElementById('statusDarkAffinity').textContent = mc.darkAffinity;
-      document.getElementById('statusRegeneration').textContent = mc.regeneration;
-      document.getElementById('statusDomination').textContent = mc.domination;
+      DOMHelpers.safeSetText('statusBloodlust', mc.bloodlust);
+      DOMHelpers.safeSetText('statusDarkAffinity', mc.darkAffinity);
+      DOMHelpers.safeSetText('statusRegeneration', mc.regeneration);
+      DOMHelpers.safeSetText('statusDomination', mc.domination);
       
       // Update combat stats
-      document.getElementById('statusAttackPower').textContent = mc.attackPower;
-      document.getElementById('statusDefense').textContent = mc.defense;
-      document.getElementById('statusCriticalRate').textContent = mc.criticalRate + '%';
-      document.getElementById('statusEvasion').textContent = mc.evasion + '%';
-      document.getElementById('statusAttackSpeed').textContent = mc.attackSpeed;
+      DOMHelpers.safeSetText('statusAttackPower', mc.attackPower);
+      DOMHelpers.safeSetText('statusDefense', mc.defense);
+      DOMHelpers.safeSetText('statusCriticalRate', mc.criticalRate + '%');
+      DOMHelpers.safeSetText('statusEvasion', mc.evasion + '%');
+      DOMHelpers.safeSetText('statusAttackSpeed', mc.attackSpeed);
       
       // Update hidden stats
-      document.getElementById('statusKarma').textContent = mc.karma;
-      document.getElementById('statusInstinct').textContent = mc.instinct;
-      document.getElementById('statusWillpower').textContent = mc.willpower;
-      document.getElementById('statusPresence').textContent = mc.presence;
+      DOMHelpers.safeSetText('statusKarma', mc.karma);
+      DOMHelpers.safeSetText('statusInstinct', mc.instinct);
+      DOMHelpers.safeSetText('statusWillpower', mc.willpower);
+      DOMHelpers.safeSetText('statusPresence', mc.presence);
       
       // Update skills
-      const skillsContainer = document.getElementById('statusSkills');
+      const skillsContainer = DOMHelpers.safeGetElement('statusSkills');
       if (mc.skills && mc.skills.length > 0) {
         skillsContainer.innerHTML = mc.skills.map(skill => `
           <div class="status-item">
@@ -711,7 +714,7 @@ const updateStatusScreen = () => {
       }
       
       // Update abilities
-      const abilitiesContainer = document.getElementById('statusAbilities');
+      const abilitiesContainer = DOMHelpers.safeGetElement('statusAbilities');
       if (mc.abilities && mc.abilities.length > 0) {
         abilitiesContainer.innerHTML = mc.abilities.map(ability => `
           <div class="status-item">
@@ -725,7 +728,7 @@ const updateStatusScreen = () => {
       }
       
       // Update inventory
-      const inventoryContainer = document.getElementById('statusInventory');
+      const inventoryContainer = DOMHelpers.safeGetElement('statusInventory');
       if (mc.inventory && mc.inventory.length > 0) {
         inventoryContainer.innerHTML = mc.inventory.map(item => `
           <div class="status-item">
@@ -740,7 +743,7 @@ const updateStatusScreen = () => {
     }
 
 const setCustomSpeedScreen = () => {
-      const input = document.getElementById('customSpeedInputScreen');
+      const input = DOMHelpers.safeGetElement('customSpeedInputScreen');
       const ms = parseInt(input.value) * 1000;
       if (isNaN(ms) || ms < 1000 || ms > 3600000) {
         safeShowNotification('combat-notif', '❌ Invalid Speed', 'Enter a value between 1 and 3600 seconds');
@@ -750,8 +753,8 @@ const setCustomSpeedScreen = () => {
     }
 
 const submitDirectiveScreen = () => {
-      const text = document.getElementById('directiveTextScreen').value.trim();
-      const chapters = parseInt(document.getElementById('directiveChaptersScreen').value) || 3;
+      const text = DOMHelpers.safeGetElement('directiveTextScreen').value.trim();
+      const chapters = parseInt(DOMHelpers.safeGetElement('directiveChaptersScreen').value) || 3;
       if (!text) {
         safeShowNotification('combat-notif', '❌ Error', 'Enter a directive!');
         return;
@@ -760,8 +763,8 @@ const submitDirectiveScreen = () => {
     }
 
 const addStoryRule = () => {
-      const text = document.getElementById('storyRuleText').value.trim();
-      const type = document.getElementById('ruleType').value;
+      const text = DOMHelpers.safeGetElement('storyRuleText').value.trim();
+      const type = DOMHelpers.safeGetElement('ruleType').value;
       if (!text) {
         safeShowNotification('combat-notif', '❌ Error', 'Enter a rule!');
         return;
@@ -774,13 +777,13 @@ const addStoryRule = () => {
         active: true
       });
       Storage.setItem('ese_storyRules', storyRules);
-      document.getElementById('storyRuleText').value = '';
+      DOMHelpers.safeGetElement('storyRuleText').value = '';
       updateStoryRulesList();
       safeShowNotification('level-notif', '📜 Rule Added', `${type} rule: ${text.substring(0, 50)}...`);
     }
 
 const updateStoryRulesList = () => {
-      const list = document.getElementById('storyRulesList');
+      const list = DOMHelpers.safeGetElement('storyRulesList');
       if (storyRules.length === 0) {
         list.innerHTML = '<p style="color:rgba(255,255,255,0.4);font-size:12px;padding:10px;">No rules yet.</p>';
         return;
@@ -809,20 +812,20 @@ const getActiveRules = () => {
     }
 
 const updateGenerationMode = () => {
-      generationMode = document.getElementById('generationMode').value;
+      generationMode = DOMHelpers.safeGetElement('generationMode').value;
       Storage.setItem('ese_generationMode', generationMode);
       updateAdminProgressInfo();
       safeShowNotification('level-notif', '🎮 Mode Changed', `Generation: ${generationMode === 'unlimited' ? 'Unlimited' : 'Admin Progress'}`);
     }
 
 const updateAdminProgressInfo = () => {
-      const info = document.getElementById('adminProgressInfo');
+      const info = DOMHelpers.safeGetElement('adminProgressInfo');
       if (!info) return;
       if (generationMode === 'admin_progress') {
         info.style.display = 'block';
-        const adminCh = document.getElementById('adminCurrentChapter');
+        const adminCh = DOMHelpers.safeGetElement('adminCurrentChapter');
         if (adminCh) adminCh.textContent = AppState.currentChapter;
-        const genCount = document.getElementById('generatedChaptersCount');
+        const genCount = DOMHelpers.safeGetElement('generatedChaptersCount');
         if (genCount) genCount.textContent = AppState.totalGenerated;
       } else {
         info.style.display = 'none';
@@ -852,7 +855,7 @@ const resetStory = () => {
       Storage.removeItem('ese_directives');
       
       // Update UI
-      document.getElementById('storyContainer').innerHTML = '';
+      DOMHelpers.safeGetElement('storyContainer').innerHTML = '';
       updateChapterNav();
       updateStats();
       updateDirectiveList();
@@ -882,7 +885,7 @@ const quickResetStory = () => {
       Storage.removeItem('ese_directives');
       
       // Update UI
-      document.getElementById('storyContainer').innerHTML = '';
+      DOMHelpers.safeGetElement('storyContainer').innerHTML = '';
       updateChapterNav();
       updateStats();
       updateDirectiveList();
@@ -893,10 +896,10 @@ const quickResetStory = () => {
 
 const togglePause = () => {
       AppState.paused = !AppState.paused;
-      const pauseIcon = document.getElementById('pauseIcon');
-      const pauseLabel = document.getElementById('pauseLabel');
-      const pauseBtn = document.getElementById('pauseBtn');
-      const speedDisplay = document.getElementById('speedCurrentDisplay');
+      const pauseIcon = DOMHelpers.safeGetElement('pauseIcon');
+      const pauseLabel = DOMHelpers.safeGetElement('pauseLabel');
+      const pauseBtn = DOMHelpers.safeGetElement('pauseBtn');
+      const speedDisplay = DOMHelpers.safeGetElement('speedCurrentDisplay');
 
       if (AppState.paused) {
         // Pause — clear interval
@@ -919,32 +922,32 @@ const togglePause = () => {
         pauseLabel.textContent = 'Pause Generation';
         pauseBtn.classList.remove('paused');
         updateSpeedDisplay();
-        document.getElementById('speedCurrentDisplay').innerHTML = `Current: <strong>1 chapter every <span id="speedValueDisplay">${formatSpeed(CHAPTER_INTERVAL_MS)}</span></strong>`;
+        DOMHelpers.safeGetElement('speedCurrentDisplay').innerHTML = `Current: <strong>1 chapter every <span id="speedValueDisplay">${formatSpeed(CHAPTER_INTERVAL_MS)}</span></strong>`;
         safeShowNotification('level-notif', '▶️ Resumed', `Generating 1 chapter every ${formatSpeed(CHAPTER_INTERVAL_MS)}`);
       }
     }
 
 const submitDirective = () => {
-      const text = document.getElementById('directiveText').value.trim();
-      const chapters = parseInt(document.getElementById('directiveChapters').value) || 3;
+      const text = DOMHelpers.safeGetElement('directiveText').value.trim();
+      const chapters = parseInt(DOMHelpers.safeGetElement('directiveChapters').value) || 3;
       if (!text) { safeShowNotification('combat-notif', '❌ Error', 'Enter a directive!'); return; }
       StoryEngine.addDirective(text, chapters);
       safeShowNotification('level-notif', '👑 Directive Added', `Woven in within ${chapters} chapters`);
-      document.getElementById('directiveText').value = '';
-      document.getElementById('directiveChapters').value = '3';
+      DOMHelpers.safeGetElement('directiveText').value = '';
+      DOMHelpers.safeGetElement('directiveChapters').value = '3';
       updateDirectiveList();
     }
 
 const updateDirectiveList = () => {
-      const list = document.getElementById('directiveList');
+      const list = DOMHelpers.safeGetElement('directiveList');
       const all = StoryEngine.getAllDirectives();
       if (all.length === 0) { list.innerHTML = '<p style="color:var(--text-muted);font-size:12px;padding:10px;">No directives yet.</p>'; return; }
       list.innerHTML = all.map(d => `<div class="directive-item"><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${d.text}">${d.text}</span><span class="directive-status ${d.status}">${d.status}</span></div>`).join('');
     }
 
 const updateAdminCredentials = () => {
-      const newUsername = document.getElementById('adminUsernameScreen').value.trim();
-      const newPassword = document.getElementById('adminPasswordScreen').value;
+      const newUsername = DOMHelpers.safeGetElement('adminUsernameScreen').value.trim();
+      const newPassword = DOMHelpers.safeGetElement('adminPasswordScreen').value;
 
       // Validate — at least one field must be filled
       if (!newUsername && !newPassword) {
@@ -967,7 +970,7 @@ const updateAdminCredentials = () => {
       if (newUsername) {
         ADMIN_USER.username = newUsername;
         if (AppState.currentUser) AppState.currentUser.username = newUsername;
-        document.getElementById('dropdownUsername').textContent = newUsername;
+        DOMHelpers.safeSetText('dropdownUsername', newUsername);
       }
       if (newPassword) {
         ADMIN_USER.password = newPassword;
@@ -980,8 +983,8 @@ const updateAdminCredentials = () => {
       }
 
       // Clear fields
-      document.getElementById('adminUsernameScreen').value = '';
-      document.getElementById('adminPasswordScreen').value = '';
+      DOMHelpers.safeGetElement('adminUsernameScreen').value = '';
+      DOMHelpers.safeGetElement('adminPasswordScreen').value = '';
 
       // Update display
       updateAdminCredsDisplay();
@@ -993,21 +996,21 @@ const updateAdminCredentials = () => {
     }
 
 const updateAdminCredsDisplay = () => {
-      const el = document.getElementById('adminCurrentCreds');
+      const el = DOMHelpers.safeGetElement('adminCurrentCreds');
       if (el) {
         el.innerHTML = `<span>Current: <strong>${ADMIN_USER.username}</strong> / <strong>${'•'.repeat(ADMIN_USER.password.length)}</strong></span>`;
       }
     }
 
 const toggleAdminPwVisibility = () => {
-      const input = document.getElementById('adminPasswordScreen');
+      const input = DOMHelpers.safeGetElement('adminPasswordScreen');
       input.type = input.type === 'password' ? 'text' : 'password';
     }
 
 const loadUserList = () => {
       const users = getUsers();
-      const list = document.getElementById('userListScreen');
-      const count = document.getElementById('userCountScreen');
+      const list = DOMHelpers.safeGetElement('userListScreen');
+      const count = DOMHelpers.safeGetElement('userCountScreen');
 
       count.textContent = `${users.length} user${users.length !== 1 ? 's' : ''}`;
 
@@ -1035,7 +1038,7 @@ const loadUserList = () => {
     }
 
 const filterUsers = () => {
-      const query = document.getElementById('userSearchInputScreen').value.toLowerCase();
+      const query = DOMHelpers.safeGetElement('userSearchInputScreen').value.toLowerCase();
       const items = document.querySelectorAll('.user-item');
 
       items.forEach(item => {
@@ -1101,11 +1104,11 @@ const editUserEmail = (username) => {
 const selectDonation = (amount) => {
       AppState.selectedDonation = amount;
       document.querySelectorAll('.donate-amount-btn').forEach(btn => btn.classList.toggle('selected', btn.textContent === `$${amount}`));
-      document.getElementById('donateCustom').value = '';
+      DOMHelpers.safeGetElement('donateCustom').value = '';
     }
 
 const openPayPalDonation = () => {
-      const custom = document.getElementById('donateCustom').value;
+      const custom = DOMHelpers.safeGetElement('donateCustom').value;
       const amount = custom ? parseFloat(custom) : AppState.selectedDonation;
       if (!amount || amount <= 0) { safeShowNotification('combat-notif', '❌ Error', 'Select or enter a donation amount!'); return; }
       AppState.selectedDonation = amount;
@@ -1114,25 +1117,25 @@ const openPayPalDonation = () => {
       safeShowNotification('level-notif', '🔗 PayPal Opened', `Send $${amount.toFixed(2)} via PayPal to complete your donation.`);
       // Show confirmation step after a short delay
       setTimeout(() => {
-        document.getElementById('donateStep1').querySelector('.paypal-confirm-section').style.display = 'block';
+        DOMHelpers.safeGetElement('donateStep1').querySelector('.paypal-confirm-section').style.display = 'block';
       }, 500);
     }
 
 const confirmDonation = () => {
-      document.getElementById('donateStep1').style.display = 'none';
-      document.getElementById('donateStep3').style.display = 'block';
+      DOMHelpers.safeGetElement('donateStep1').style.display = 'none';
+      DOMHelpers.safeGetElement('donateStep3').style.display = 'block';
       safeShowNotification('level-notif', '💰 Thank You!', `Your generous donation is appreciated!`);
     }
 
 const closeDonateModal = () => {
       closeModal('donateOverlay');
       setTimeout(() => {
-        document.getElementById('donateStep1').style.display = 'block';
-        document.getElementById('donateStep3').style.display = 'none';
-        const confirmSec = document.getElementById('donateStep1').querySelector('.paypal-confirm-section');
+        DOMHelpers.safeGetElement('donateStep1').style.display = 'block';
+        DOMHelpers.safeGetElement('donateStep3').style.display = 'none';
+        const confirmSec = DOMHelpers.safeGetElement('donateStep1').querySelector('.paypal-confirm-section');
         if (confirmSec) confirmSec.style.display = 'none';
-        document.getElementById('donateCustom').value = '';
-        document.getElementById('donateMessage').value = '';
+        DOMHelpers.safeGetElement('donateCustom').value = '';
+        DOMHelpers.safeGetElement('donateMessage').value = '';
         AppState.selectedDonation = null;
         document.querySelectorAll('.donate-amount-btn').forEach(b => b.classList.remove('selected'));
       }, 300);
@@ -1144,15 +1147,15 @@ const openPayPalSubscription = () => {
     }
 
 const confirmSubscription = () => {
-      document.getElementById('subStep1').style.display = 'none';
-      document.getElementById('subStep3').style.display = 'block';
+      DOMHelpers.safeGetElement('subStep1').style.display = 'none';
+      DOMHelpers.safeGetElement('subStep3').style.display = 'block';
       if (AppState.currentUser) {
         AppState.currentUser.subscribed = true;
         const users = getUsers();
         const idx = users.findIndex(u => u.username === AppState.currentUser.username);
         if (idx !== -1) { users[idx].subscribed = true; saveUsers(users); }
-        document.getElementById('dropdownUserIcon').textContent = '⭐';
-        document.getElementById('dropdownUserRole').textContent = 'Premium Reader';
+        DOMHelpers.safeSetText('dropdownUserIcon', '⭐');
+        DOMHelpers.safeSetText('dropdownUserRole', 'Premium Reader');
         Storage.setItem('ese_currentUser', AppState.currentUser);
       }
       safeShowNotification('level-notif', '⭐ Subscribed!', 'Welcome to the premium experience!');
@@ -1161,8 +1164,8 @@ const confirmSubscription = () => {
 const closeSubModal = () => {
       closeModal('subscribeOverlay');
       setTimeout(() => {
-        document.getElementById('subStep1').style.display = 'block';
-        document.getElementById('subStep3').style.display = 'none';
+        DOMHelpers.safeGetElement('subStep1').style.display = 'block';
+        DOMHelpers.safeGetElement('subStep3').style.display = 'none';
       }, 300);
     }
 

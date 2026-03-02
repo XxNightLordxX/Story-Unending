@@ -77,11 +77,6 @@ const DependencyValidator = (function() {
         const validation = validateDependencies(moduleName);
         const required = getRequiredDependencies(moduleName);
         
-        console.log(`[DependencyValidator] Module: ${moduleName}`);
-        console.log(`  Required: ${required.join(', ') || 'none'}`);
-        console.log(`  Loaded: ${required.filter(dep => loadedDependencies.has(dep)).join(', ') || 'none'}`);
-        console.log(`  Missing: ${validation.missing.join(', ') || 'none'}`);
-        console.log(`  Status: ${validation.valid ? '✓ Valid' : '✗ Invalid'}`);
     };
     
     /**

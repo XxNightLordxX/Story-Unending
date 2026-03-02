@@ -323,7 +323,6 @@
   const enableSentry = (dsn) => {
     sentryDsn = dsn;
     sentryEnabled = true;
-    console.log('[ErrorHandler] Sentry integration enabled');
   };
 
   /**
@@ -331,7 +330,6 @@
    */
   const disableSentry = () => {
     sentryEnabled = false;
-    console.log('[ErrorHandler] Sentry integration disabled');
   };
 
   /**
@@ -344,7 +342,6 @@
 
     // Note: This is a placeholder for Sentry integration
     // In production, you would use the Sentry SDK here
-    console.log('[ErrorHandler] Tracking error in Sentry:', error, context);
   };
 
   // ============================================================================

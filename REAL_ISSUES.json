@@ -1,0 +1,316 @@
+{
+  "real_critical_issues": [
+    {
+      "file": "Story-Unending/utils/archive/embedded_js_temp.js",
+      "line": 1295,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "Potential XSS vulnerability - innerHTML with unsanitized input",
+      "code_snippet": "list.innerHTML = users.map(user => `",
+      "suggested_fix": "Use textContent or sanitize HTML before setting innerHTML"
+    },
+    {
+      "file": "Story-Unending/js/modules/misc.js",
+      "line": 914,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "Potential XSS vulnerability - innerHTML with unsanitized input",
+      "code_snippet": "list.innerHTML = users.map(user => `",
+      "suggested_fix": "Use textContent or sanitize HTML before setting innerHTML"
+    },
+    {
+      "file": "utils/archive/embedded_js_temp.js",
+      "line": 1295,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "Potential XSS vulnerability - innerHTML with unsanitized input",
+      "code_snippet": "list.innerHTML = users.map(user => `",
+      "suggested_fix": "Use textContent or sanitize HTML before setting innerHTML"
+    },
+    {
+      "file": "js/modules/misc.js",
+      "line": 914,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "Potential XSS vulnerability - innerHTML with unsanitized input",
+      "code_snippet": "list.innerHTML = users.map(user => `",
+      "suggested_fix": "Use textContent or sanitize HTML before setting innerHTML"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_core_reading_functions.js",
+      "line": 50,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(appStateCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_core_reading_functions.js",
+      "line": 58,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(navigationCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_core_reading_functions.js",
+      "line": 63,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(miscCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_reading_functions_browser.js",
+      "line": 22,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(navigationCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_reading_functions_browser.js",
+      "line": 26,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(miscCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_reading_functions_mocked.js",
+      "line": 45,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(navigationCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_reading_functions_mocked.js",
+      "line": 49,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(miscCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_reading_functions.js",
+      "line": 11,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(fs.readFileSync(storyEnginePath, 'utf8'));",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_comprehensive_reading.js",
+      "line": 50,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(appStateCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_comprehensive_reading.js",
+      "line": 55,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(navigationCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_comprehensive_reading.js",
+      "line": 60,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(miscCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "Story-Unending/tests/javascript/test_comprehensive_reading.js",
+      "line": 65,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(sidebarCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_core_reading_functions.js",
+      "line": 50,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(appStateCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_core_reading_functions.js",
+      "line": 58,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(navigationCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_core_reading_functions.js",
+      "line": 63,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(miscCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_reading_functions_browser.js",
+      "line": 22,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(navigationCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_reading_functions_browser.js",
+      "line": 26,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(miscCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_reading_functions_mocked.js",
+      "line": 45,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(navigationCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_reading_functions_mocked.js",
+      "line": 49,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(miscCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_reading_functions.js",
+      "line": 11,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(fs.readFileSync(storyEnginePath, 'utf8'));",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_comprehensive_reading.js",
+      "line": 50,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(appStateCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_comprehensive_reading.js",
+      "line": 55,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(navigationCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_comprehensive_reading.js",
+      "line": 60,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(miscCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    },
+    {
+      "file": "tests/javascript/test_comprehensive_reading.js",
+      "line": 65,
+      "severity": "CRITICAL",
+      "issue_type": "SECURITY",
+      "description": "eval() usage - code injection vulnerability",
+      "code_snippet": "eval(sidebarCode);",
+      "suggested_fix": "Remove eval() and use safer alternatives"
+    }
+  ],
+  "real_high_issues": [
+    {
+      "file": "Story-Unending/utils/archive/embedded_js_temp.js",
+      "line": 0,
+      "severity": "HIGH",
+      "issue_type": "SECURITY",
+      "description": "Sensitive data stored in localStorage",
+      "code_snippet": "localStorage with password/token",
+      "suggested_fix": "Use secure storage or encrypt sensitive data"
+    },
+    {
+      "file": "Story-Unending/js/utils/storage.js",
+      "line": 0,
+      "severity": "HIGH",
+      "issue_type": "SECURITY",
+      "description": "Sensitive data stored in localStorage",
+      "code_snippet": "localStorage with password/token",
+      "suggested_fix": "Use secure storage or encrypt sensitive data"
+    },
+    {
+      "file": "Story-Unending/tests/integration.test.js",
+      "line": 0,
+      "severity": "HIGH",
+      "issue_type": "SECURITY",
+      "description": "Sensitive data stored in localStorage",
+      "code_snippet": "localStorage with password/token",
+      "suggested_fix": "Use secure storage or encrypt sensitive data"
+    },
+    {
+      "file": "utils/archive/embedded_js_temp.js",
+      "line": 0,
+      "severity": "HIGH",
+      "issue_type": "SECURITY",
+      "description": "Sensitive data stored in localStorage",
+      "code_snippet": "localStorage with password/token",
+      "suggested_fix": "Use secure storage or encrypt sensitive data"
+    },
+    {
+      "file": "js/utils/storage.js",
+      "line": 0,
+      "severity": "HIGH",
+      "issue_type": "SECURITY",
+      "description": "Sensitive data stored in localStorage",
+      "code_snippet": "localStorage with password/token",
+      "suggested_fix": "Use secure storage or encrypt sensitive data"
+    },
+    {
+      "file": "tests/integration.test.js",
+      "line": 0,
+      "severity": "HIGH",
+      "issue_type": "SECURITY",
+      "description": "Sensitive data stored in localStorage",
+      "code_snippet": "localStorage with password/token",
+      "suggested_fix": "Use secure storage or encrypt sensitive data"
+    }
+  ],
+  "summary": {
+    "real_critical_count": 28,
+    "real_high_count": 6
+  }
+}

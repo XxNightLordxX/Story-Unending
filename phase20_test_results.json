@@ -1,0 +1,848 @@
+{
+  "total_tests": 140,
+  "passed_tests": 140,
+  "failed_tests": 0,
+  "pass_rate": 100.0,
+  "results": [
+    {
+      "section": "20.1",
+      "test": "Signup Process 1",
+      "passed": true,
+      "message": "User user_1772526577 onboarded successfully"
+    },
+    {
+      "section": "20.1",
+      "test": "Signup Process 2",
+      "passed": true,
+      "message": "User user_1772526577 onboarded successfully"
+    },
+    {
+      "section": "20.1",
+      "test": "Signup Process 3",
+      "passed": true,
+      "message": "User user_1772526577 onboarded successfully"
+    },
+    {
+      "section": "20.1",
+      "test": "Signup Process 4",
+      "passed": true,
+      "message": "User user_1772526577 onboarded successfully"
+    },
+    {
+      "section": "20.1",
+      "test": "Signup Process 5",
+      "passed": true,
+      "message": "User user_1772526577 onboarded successfully"
+    },
+    {
+      "section": "20.1",
+      "test": "Signup Process 6",
+      "passed": true,
+      "message": "User user_1772526577 onboarded successfully"
+    },
+    {
+      "section": "20.1",
+      "test": "Profile Setup 1",
+      "passed": true,
+      "message": "Profile setup completed"
+    },
+    {
+      "section": "20.1",
+      "test": "Profile Setup 2",
+      "passed": true,
+      "message": "Profile setup completed"
+    },
+    {
+      "section": "20.1",
+      "test": "Profile Setup 3",
+      "passed": true,
+      "message": "Profile setup completed"
+    },
+    {
+      "section": "20.1",
+      "test": "Profile Setup 4",
+      "passed": true,
+      "message": "Profile setup completed"
+    },
+    {
+      "section": "20.1",
+      "test": "Profile Setup 5",
+      "passed": true,
+      "message": "Profile setup completed"
+    },
+    {
+      "section": "20.1",
+      "test": "Profile Setup 6",
+      "passed": true,
+      "message": "Profile setup completed"
+    },
+    {
+      "section": "20.1",
+      "test": "Tutorial Completion 1",
+      "passed": true,
+      "message": "Tutorial steps: 5/5"
+    },
+    {
+      "section": "20.1",
+      "test": "Tutorial Completion 2",
+      "passed": true,
+      "message": "Tutorial steps: 5/5"
+    },
+    {
+      "section": "20.1",
+      "test": "Tutorial Completion 3",
+      "passed": true,
+      "message": "Tutorial steps: 5/5"
+    },
+    {
+      "section": "20.1",
+      "test": "Tutorial Completion 4",
+      "passed": true,
+      "message": "Tutorial steps: 5/5"
+    },
+    {
+      "section": "20.1",
+      "test": "Tutorial Completion 5",
+      "passed": true,
+      "message": "Tutorial steps: 5/5"
+    },
+    {
+      "section": "20.1",
+      "test": "Tutorial Completion 6",
+      "passed": true,
+      "message": "Tutorial steps: 5/5"
+    },
+    {
+      "section": "20.1",
+      "test": "First Story Generation 1",
+      "passed": true,
+      "message": "First story generated for new user"
+    },
+    {
+      "section": "20.1",
+      "test": "First Story Generation 2",
+      "passed": true,
+      "message": "First story generated for new user"
+    },
+    {
+      "section": "20.1",
+      "test": "First Story Generation 3",
+      "passed": true,
+      "message": "First story generated for new user"
+    },
+    {
+      "section": "20.1",
+      "test": "First Story Generation 4",
+      "passed": true,
+      "message": "First story generated for new user"
+    },
+    {
+      "section": "20.1",
+      "test": "First Story Generation 5",
+      "passed": true,
+      "message": "First story generated for new user"
+    },
+    {
+      "section": "20.1",
+      "test": "First Story Generation 6",
+      "passed": true,
+      "message": "First story generated for new user"
+    },
+    {
+      "section": "20.1",
+      "test": "Onboarding Time 1",
+      "passed": true,
+      "message": "Onboarding completed in acceptable time"
+    },
+    {
+      "section": "20.1",
+      "test": "Onboarding Time 2",
+      "passed": true,
+      "message": "Onboarding completed in acceptable time"
+    },
+    {
+      "section": "20.1",
+      "test": "Onboarding Time 3",
+      "passed": true,
+      "message": "Onboarding completed in acceptable time"
+    },
+    {
+      "section": "20.1",
+      "test": "Onboarding Time 4",
+      "passed": true,
+      "message": "Onboarding completed in acceptable time"
+    },
+    {
+      "section": "20.2",
+      "test": "Daily Reading 1",
+      "passed": true,
+      "message": "Activities in 7 days: 26"
+    },
+    {
+      "section": "20.2",
+      "test": "Daily Reading 2",
+      "passed": true,
+      "message": "Activities in 7 days: 27"
+    },
+    {
+      "section": "20.2",
+      "test": "Daily Reading 3",
+      "passed": true,
+      "message": "Activities in 7 days: 27"
+    },
+    {
+      "section": "20.2",
+      "test": "Daily Reading 4",
+      "passed": true,
+      "message": "Activities in 7 days: 27"
+    },
+    {
+      "section": "20.2",
+      "test": "Daily Reading 5",
+      "passed": true,
+      "message": "Activities in 7 days: 26"
+    },
+    {
+      "section": "20.2",
+      "test": "Daily Reading 6",
+      "passed": true,
+      "message": "Activities in 7 days: 26"
+    },
+    {
+      "section": "20.2",
+      "test": "Weekly Engagement 1",
+      "passed": true,
+      "message": "Avg daily: 3.7"
+    },
+    {
+      "section": "20.2",
+      "test": "Weekly Engagement 2",
+      "passed": true,
+      "message": "Avg daily: 3.1"
+    },
+    {
+      "section": "20.2",
+      "test": "Weekly Engagement 3",
+      "passed": true,
+      "message": "Avg daily: 3.4"
+    },
+    {
+      "section": "20.2",
+      "test": "Weekly Engagement 4",
+      "passed": true,
+      "message": "Avg daily: 3.0"
+    },
+    {
+      "section": "20.2",
+      "test": "Weekly Engagement 5",
+      "passed": true,
+      "message": "Avg daily: 3.6"
+    },
+    {
+      "section": "20.2",
+      "test": "Weekly Engagement 6",
+      "passed": true,
+      "message": "Avg daily: 4.0"
+    },
+    {
+      "section": "20.2",
+      "test": "Monthly Retention 1",
+      "passed": true,
+      "message": "User retained for 30 days"
+    },
+    {
+      "section": "20.2",
+      "test": "Monthly Retention 2",
+      "passed": true,
+      "message": "User retained for 30 days"
+    },
+    {
+      "section": "20.2",
+      "test": "Monthly Retention 3",
+      "passed": true,
+      "message": "User retained for 30 days"
+    },
+    {
+      "section": "20.2",
+      "test": "Monthly Retention 4",
+      "passed": true,
+      "message": "User retained for 30 days"
+    },
+    {
+      "section": "20.2",
+      "test": "Monthly Retention 5",
+      "passed": true,
+      "message": "User retained for 30 days"
+    },
+    {
+      "section": "20.2",
+      "test": "Monthly Retention 6",
+      "passed": true,
+      "message": "User retained for 30 days"
+    },
+    {
+      "section": "20.2",
+      "test": "Feature Usage Patterns 1",
+      "passed": true,
+      "message": "Features used: 53 times"
+    },
+    {
+      "section": "20.2",
+      "test": "Feature Usage Patterns 2",
+      "passed": true,
+      "message": "Features used: 49 times"
+    },
+    {
+      "section": "20.2",
+      "test": "Feature Usage Patterns 3",
+      "passed": true,
+      "message": "Features used: 46 times"
+    },
+    {
+      "section": "20.2",
+      "test": "Feature Usage Patterns 4",
+      "passed": true,
+      "message": "Features used: 47 times"
+    },
+    {
+      "section": "20.2",
+      "test": "Feature Usage Patterns 5",
+      "passed": true,
+      "message": "Features used: 40 times"
+    },
+    {
+      "section": "20.2",
+      "test": "Feature Usage Patterns 6",
+      "passed": true,
+      "message": "Features used: 51 times"
+    },
+    {
+      "section": "20.2",
+      "test": "Usage Consistency 1",
+      "passed": true,
+      "message": "Consistent usage over 21 days"
+    },
+    {
+      "section": "20.2",
+      "test": "Usage Consistency 2",
+      "passed": true,
+      "message": "Consistent usage over 21 days"
+    },
+    {
+      "section": "20.2",
+      "test": "Usage Consistency 3",
+      "passed": true,
+      "message": "Consistent usage over 21 days"
+    },
+    {
+      "section": "20.2",
+      "test": "Usage Consistency 4",
+      "passed": true,
+      "message": "Consistent usage over 21 days"
+    },
+    {
+      "section": "20.3",
+      "test": "Large Story Handling 1",
+      "passed": true,
+      "message": "Chapters: 500"
+    },
+    {
+      "section": "20.3",
+      "test": "Large Story Handling 2",
+      "passed": true,
+      "message": "Chapters: 500"
+    },
+    {
+      "section": "20.3",
+      "test": "Large Story Handling 3",
+      "passed": true,
+      "message": "Chapters: 500"
+    },
+    {
+      "section": "20.3",
+      "test": "Large Story Handling 4",
+      "passed": true,
+      "message": "Chapters: 500"
+    },
+    {
+      "section": "20.3",
+      "test": "Large Story Handling 5",
+      "passed": true,
+      "message": "Chapters: 500"
+    },
+    {
+      "section": "20.3",
+      "test": "Large Story Handling 6",
+      "passed": true,
+      "message": "Chapters: 500"
+    },
+    {
+      "section": "20.3",
+      "test": "Multiple Story Management 1",
+      "passed": true,
+      "message": "Stories: 10, Chapters: 2500"
+    },
+    {
+      "section": "20.3",
+      "test": "Multiple Story Management 2",
+      "passed": true,
+      "message": "Stories: 10, Chapters: 2500"
+    },
+    {
+      "section": "20.3",
+      "test": "Multiple Story Management 3",
+      "passed": true,
+      "message": "Stories: 10, Chapters: 2500"
+    },
+    {
+      "section": "20.3",
+      "test": "Multiple Story Management 4",
+      "passed": true,
+      "message": "Stories: 10, Chapters: 2500"
+    },
+    {
+      "section": "20.3",
+      "test": "Multiple Story Management 5",
+      "passed": true,
+      "message": "Stories: 10, Chapters: 2500"
+    },
+    {
+      "section": "20.3",
+      "test": "Multiple Story Management 6",
+      "passed": true,
+      "message": "Stories: 10, Chapters: 2500"
+    },
+    {
+      "section": "20.3",
+      "test": "Complex Search 1",
+      "passed": true,
+      "message": "Queries processed: 50"
+    },
+    {
+      "section": "20.3",
+      "test": "Complex Search 2",
+      "passed": true,
+      "message": "Queries processed: 50"
+    },
+    {
+      "section": "20.3",
+      "test": "Complex Search 3",
+      "passed": true,
+      "message": "Queries processed: 50"
+    },
+    {
+      "section": "20.3",
+      "test": "Complex Search 4",
+      "passed": true,
+      "message": "Queries processed: 50"
+    },
+    {
+      "section": "20.3",
+      "test": "Complex Search 5",
+      "passed": true,
+      "message": "Queries processed: 50"
+    },
+    {
+      "section": "20.3",
+      "test": "Complex Search 6",
+      "passed": true,
+      "message": "Queries processed: 50"
+    },
+    {
+      "section": "20.3",
+      "test": "Custom Settings 1",
+      "passed": true,
+      "message": "Settings modified: 15"
+    },
+    {
+      "section": "20.3",
+      "test": "Custom Settings 2",
+      "passed": true,
+      "message": "Settings modified: 15"
+    },
+    {
+      "section": "20.3",
+      "test": "Custom Settings 3",
+      "passed": true,
+      "message": "Settings modified: 15"
+    },
+    {
+      "section": "20.3",
+      "test": "Custom Settings 4",
+      "passed": true,
+      "message": "Settings modified: 15"
+    },
+    {
+      "section": "20.3",
+      "test": "Custom Settings 5",
+      "passed": true,
+      "message": "Settings modified: 15"
+    },
+    {
+      "section": "20.3",
+      "test": "Custom Settings 6",
+      "passed": true,
+      "message": "Settings modified: 15"
+    },
+    {
+      "section": "20.3",
+      "test": "Advanced Feature Integration 1",
+      "passed": true,
+      "message": "Advanced features integrated"
+    },
+    {
+      "section": "20.3",
+      "test": "Advanced Feature Integration 2",
+      "passed": true,
+      "message": "Advanced features integrated"
+    },
+    {
+      "section": "20.3",
+      "test": "Advanced Feature Integration 3",
+      "passed": true,
+      "message": "Advanced features integrated"
+    },
+    {
+      "section": "20.3",
+      "test": "Advanced Feature Integration 4",
+      "passed": true,
+      "message": "Advanced features integrated"
+    },
+    {
+      "section": "20.4",
+      "test": "Network Error Recovery 1",
+      "passed": true,
+      "message": "Recovered in 2.5s"
+    },
+    {
+      "section": "20.4",
+      "test": "Network Error Recovery 2",
+      "passed": true,
+      "message": "Recovered in 2.5s"
+    },
+    {
+      "section": "20.4",
+      "test": "Network Error Recovery 3",
+      "passed": true,
+      "message": "Recovered in 2.5s"
+    },
+    {
+      "section": "20.4",
+      "test": "Network Error Recovery 4",
+      "passed": true,
+      "message": "Recovered in 2.5s"
+    },
+    {
+      "section": "20.4",
+      "test": "Network Error Recovery 5",
+      "passed": true,
+      "message": "Recovered in 2.5s"
+    },
+    {
+      "section": "20.4",
+      "test": "Network Error Recovery 6",
+      "passed": true,
+      "message": "Recovered in 2.5s"
+    },
+    {
+      "section": "20.4",
+      "test": "Timeout Handling 1",
+      "passed": true,
+      "message": "Timeout recovered: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Timeout Handling 2",
+      "passed": true,
+      "message": "Timeout recovered: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Timeout Handling 3",
+      "passed": true,
+      "message": "Timeout recovered: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Timeout Handling 4",
+      "passed": true,
+      "message": "Timeout recovered: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Timeout Handling 5",
+      "passed": true,
+      "message": "Timeout recovered: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Timeout Handling 6",
+      "passed": true,
+      "message": "Timeout recovered: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Invalid Input Validation 1",
+      "passed": true,
+      "message": "Validation passed: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Invalid Input Validation 2",
+      "passed": true,
+      "message": "Validation passed: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Invalid Input Validation 3",
+      "passed": true,
+      "message": "Validation passed: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Invalid Input Validation 4",
+      "passed": true,
+      "message": "Validation passed: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Invalid Input Validation 5",
+      "passed": true,
+      "message": "Validation passed: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Invalid Input Validation 6",
+      "passed": true,
+      "message": "Validation passed: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Server Error Fallback 1",
+      "passed": true,
+      "message": "Fallback used: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Server Error Fallback 2",
+      "passed": true,
+      "message": "Fallback used: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Server Error Fallback 3",
+      "passed": true,
+      "message": "Fallback used: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Server Error Fallback 4",
+      "passed": true,
+      "message": "Fallback used: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Server Error Fallback 5",
+      "passed": true,
+      "message": "Fallback used: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Server Error Fallback 6",
+      "passed": true,
+      "message": "Fallback used: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Data Corruption Recovery 1",
+      "passed": true,
+      "message": "Restored from backup: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Data Corruption Recovery 2",
+      "passed": true,
+      "message": "Restored from backup: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Data Corruption Recovery 3",
+      "passed": true,
+      "message": "Restored from backup: True"
+    },
+    {
+      "section": "20.4",
+      "test": "Data Corruption Recovery 4",
+      "passed": true,
+      "message": "Restored from backup: True"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Initiation 1",
+      "passed": true,
+      "message": "Journey started successfully"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Initiation 2",
+      "passed": true,
+      "message": "Journey started successfully"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Initiation 3",
+      "passed": true,
+      "message": "Journey started successfully"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Initiation 4",
+      "passed": true,
+      "message": "Journey started successfully"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Initiation 5",
+      "passed": true,
+      "message": "Journey started successfully"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Initiation 6",
+      "passed": true,
+      "message": "Journey started successfully"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Progression 1",
+      "passed": true,
+      "message": "Journey progressing through stages"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Progression 2",
+      "passed": true,
+      "message": "Journey progressing through stages"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Progression 3",
+      "passed": true,
+      "message": "Journey progressing through stages"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Progression 4",
+      "passed": true,
+      "message": "Journey progressing through stages"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Progression 5",
+      "passed": true,
+      "message": "Journey progressing through stages"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Progression 6",
+      "passed": true,
+      "message": "Journey progressing through stages"
+    },
+    {
+      "section": "20.5",
+      "test": "Advanced Feature Adoption 1",
+      "passed": true,
+      "message": "Advanced features adopted"
+    },
+    {
+      "section": "20.5",
+      "test": "Advanced Feature Adoption 2",
+      "passed": true,
+      "message": "Advanced features adopted"
+    },
+    {
+      "section": "20.5",
+      "test": "Advanced Feature Adoption 3",
+      "passed": true,
+      "message": "Advanced features adopted"
+    },
+    {
+      "section": "20.5",
+      "test": "Advanced Feature Adoption 4",
+      "passed": true,
+      "message": "Advanced features adopted"
+    },
+    {
+      "section": "20.5",
+      "test": "Advanced Feature Adoption 5",
+      "passed": true,
+      "message": "Advanced features adopted"
+    },
+    {
+      "section": "20.5",
+      "test": "Advanced Feature Adoption 6",
+      "passed": true,
+      "message": "Advanced features adopted"
+    },
+    {
+      "section": "20.5",
+      "test": "Long-Term Engagement 1",
+      "passed": true,
+      "message": "User loyalty: high"
+    },
+    {
+      "section": "20.5",
+      "test": "Long-Term Engagement 2",
+      "passed": true,
+      "message": "User loyalty: high"
+    },
+    {
+      "section": "20.5",
+      "test": "Long-Term Engagement 3",
+      "passed": true,
+      "message": "User loyalty: high"
+    },
+    {
+      "section": "20.5",
+      "test": "Long-Term Engagement 4",
+      "passed": true,
+      "message": "User loyalty: high"
+    },
+    {
+      "section": "20.5",
+      "test": "Long-Term Engagement 5",
+      "passed": true,
+      "message": "User loyalty: high"
+    },
+    {
+      "section": "20.5",
+      "test": "Long-Term Engagement 6",
+      "passed": true,
+      "message": "User loyalty: high"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Completion 1",
+      "passed": true,
+      "message": "Total chapters: 1250"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Completion 2",
+      "passed": true,
+      "message": "Total chapters: 1250"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Completion 3",
+      "passed": true,
+      "message": "Total chapters: 1250"
+    },
+    {
+      "section": "20.5",
+      "test": "Journey Completion 4",
+      "passed": true,
+      "message": "Total chapters: 1250"
+    }
+  ]
+}

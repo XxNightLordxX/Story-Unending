@@ -1,0 +1,1028 @@
+{
+  "total_tests": 170,
+  "passed_tests": 170,
+  "failed_tests": 0,
+  "pass_rate": 100.0,
+  "results": [
+    {
+      "section": "17.1",
+      "test": "Hook Generation 1",
+      "passed": true,
+      "message": "Score: 0.900 (threshold: 0.6)"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Generation 2",
+      "passed": true,
+      "message": "Score: 0.700 (threshold: 0.6)"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Generation 3",
+      "passed": true,
+      "message": "Score: 0.700 (threshold: 0.6)"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Generation 4",
+      "passed": true,
+      "message": "Score: 0.600 (threshold: 0.6)"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Generation 5",
+      "passed": true,
+      "message": "Score: 0.700 (threshold: 0.6)"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Generation 6",
+      "passed": true,
+      "message": "Score: 0.700 (threshold: 0.6)"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Generation 7",
+      "passed": true,
+      "message": "Score: 0.700 (threshold: 0.6)"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Engagement 1",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Engagement 2",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Engagement 3",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Engagement 4",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Engagement 5",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Engagement 6",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Engagement 7",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Variety 1",
+      "passed": true,
+      "message": "Variety: 1.000"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Variety 2",
+      "passed": true,
+      "message": "Variety: 1.000"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Variety 3",
+      "passed": true,
+      "message": "Variety: 1.000"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Variety 4",
+      "passed": true,
+      "message": "Variety: 1.000"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Variety 5",
+      "passed": true,
+      "message": "Variety: 1.000"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Variety 6",
+      "passed": true,
+      "message": "Variety: 1.000"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Variety 7",
+      "passed": true,
+      "message": "Variety: 1.000"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Length Optimization 1",
+      "passed": true,
+      "message": "Length: 5 words, Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Length Optimization 2",
+      "passed": true,
+      "message": "Length: 6 words, Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Length Optimization 3",
+      "passed": true,
+      "message": "Length: 7 words, Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Length Optimization 4",
+      "passed": true,
+      "message": "Length: 8 words, Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Length Optimization 5",
+      "passed": true,
+      "message": "Length: 9 words, Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Length Optimization 6",
+      "passed": true,
+      "message": "Length: 10 words, Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Length Optimization 7",
+      "passed": true,
+      "message": "Length: 11 words, Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Impact 1",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Impact 2",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Impact 3",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Impact 4",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Impact 5",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.1",
+      "test": "Hook Impact 6",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Generation 1",
+      "passed": true,
+      "message": "Score: 0.700 (threshold: 0.5)"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Generation 2",
+      "passed": true,
+      "message": "Score: 0.500 (threshold: 0.5)"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Generation 3",
+      "passed": true,
+      "message": "Score: 0.700 (threshold: 0.5)"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Generation 4",
+      "passed": true,
+      "message": "Score: 0.600 (threshold: 0.5)"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Generation 5",
+      "passed": true,
+      "message": "Score: 0.700 (threshold: 0.5)"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Generation 6",
+      "passed": true,
+      "message": "Score: 0.500 (threshold: 0.5)"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Generation 7",
+      "passed": true,
+      "message": "Score: 0.500 (threshold: 0.5)"
+    },
+    {
+      "section": "17.2",
+      "test": "Suspense Creation 1",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.2",
+      "test": "Suspense Creation 2",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.2",
+      "test": "Suspense Creation 3",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.2",
+      "test": "Suspense Creation 4",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.2",
+      "test": "Suspense Creation 5",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.2",
+      "test": "Suspense Creation 6",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.2",
+      "test": "Suspense Creation 7",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Pacing 1",
+      "passed": true,
+      "message": "Sentences: 3, Score: 0.500"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Pacing 2",
+      "passed": true,
+      "message": "Sentences: 4, Score: 0.500"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Pacing 3",
+      "passed": true,
+      "message": "Sentences: 5, Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Pacing 4",
+      "passed": true,
+      "message": "Sentences: 6, Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Pacing 5",
+      "passed": true,
+      "message": "Sentences: 7, Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Pacing 6",
+      "passed": true,
+      "message": "Sentences: 8, Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Cliffhanger Pacing 7",
+      "passed": true,
+      "message": "Sentences: 9, Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Uncertainty Generation 1",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Uncertainty Generation 2",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Uncertainty Generation 3",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Uncertainty Generation 4",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Uncertainty Generation 5",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Uncertainty Generation 6",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Uncertainty Generation 7",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.2",
+      "test": "Emotional Cliffhanger 1",
+      "passed": true,
+      "message": "Score: 0.500"
+    },
+    {
+      "section": "17.2",
+      "test": "Emotional Cliffhanger 2",
+      "passed": true,
+      "message": "Score: 0.500"
+    },
+    {
+      "section": "17.2",
+      "test": "Emotional Cliffhanger 3",
+      "passed": true,
+      "message": "Score: 0.500"
+    },
+    {
+      "section": "17.2",
+      "test": "Emotional Cliffhanger 4",
+      "passed": true,
+      "message": "Score: 0.500"
+    },
+    {
+      "section": "17.2",
+      "test": "Emotional Cliffhanger 5",
+      "passed": true,
+      "message": "Score: 0.500"
+    },
+    {
+      "section": "17.2",
+      "test": "Emotional Cliffhanger 6",
+      "passed": true,
+      "message": "Score: 0.500"
+    },
+    {
+      "section": "17.3",
+      "test": "Joy Detection 1",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Joy Detection 2",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Joy Detection 3",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Joy Detection 4",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Joy Detection 5",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Joy Detection 6",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Joy Detection 7",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Sadness Detection 1",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Sadness Detection 2",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Sadness Detection 3",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Sadness Detection 4",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Sadness Detection 5",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Sadness Detection 6",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Sadness Detection 7",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Fear Detection 1",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Fear Detection 2",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Fear Detection 3",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Fear Detection 4",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Fear Detection 5",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Fear Detection 6",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Fear Detection 7",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Anger Detection 1",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Anger Detection 2",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Anger Detection 3",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Anger Detection 4",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Anger Detection 5",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Anger Detection 6",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Anger Detection 7",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Love Detection 1",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Love Detection 2",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Love Detection 3",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Love Detection 4",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Love Detection 5",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.3",
+      "test": "Love Detection 6",
+      "passed": true,
+      "message": "Score: 0.400"
+    },
+    {
+      "section": "17.4",
+      "test": "Visual Details 1",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Visual Details 2",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Visual Details 3",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Visual Details 4",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Visual Details 5",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Visual Details 6",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Visual Details 7",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Auditory Details 1",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Auditory Details 2",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Auditory Details 3",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Auditory Details 4",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Auditory Details 5",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Auditory Details 6",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Auditory Details 7",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Tactile Details 1",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Tactile Details 2",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Tactile Details 3",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Tactile Details 4",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Tactile Details 5",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Tactile Details 6",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Tactile Details 7",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Olfactory Details 1",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Olfactory Details 2",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Olfactory Details 3",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Olfactory Details 4",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Olfactory Details 5",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Olfactory Details 6",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Olfactory Details 7",
+      "passed": true,
+      "message": "Score: 0.200"
+    },
+    {
+      "section": "17.4",
+      "test": "Multi-Sensory Integration 1",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.4",
+      "test": "Multi-Sensory Integration 2",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.4",
+      "test": "Multi-Sensory Integration 3",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.4",
+      "test": "Multi-Sensory Integration 4",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.4",
+      "test": "Multi-Sensory Integration 5",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.4",
+      "test": "Multi-Sensory Integration 6",
+      "passed": true,
+      "message": "Score: 0.600"
+    },
+    {
+      "section": "17.5",
+      "test": "Natural Dialogue 1",
+      "passed": true,
+      "message": "Score: 1.000"
+    },
+    {
+      "section": "17.5",
+      "test": "Natural Dialogue 2",
+      "passed": true,
+      "message": "Score: 1.000"
+    },
+    {
+      "section": "17.5",
+      "test": "Natural Dialogue 3",
+      "passed": true,
+      "message": "Score: 1.000"
+    },
+    {
+      "section": "17.5",
+      "test": "Natural Dialogue 4",
+      "passed": true,
+      "message": "Score: 1.000"
+    },
+    {
+      "section": "17.5",
+      "test": "Natural Dialogue 5",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Natural Dialogue 6",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Natural Dialogue 7",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Variety 1",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Variety 2",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Variety 3",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Variety 4",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Variety 5",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Variety 6",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Variety 7",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Pacing 1",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Pacing 2",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Pacing 3",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Pacing 4",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Pacing 5",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Pacing 6",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Dialogue Pacing 7",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Character Voice 1",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Character Voice 2",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.5",
+      "test": "Character Voice 3",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Character Voice 4",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.5",
+      "test": "Character Voice 5",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Character Voice 6",
+      "passed": true,
+      "message": "Score: 0.700"
+    },
+    {
+      "section": "17.5",
+      "test": "Character Voice 7",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Emotional Dialogue 1",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Emotional Dialogue 2",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Emotional Dialogue 3",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Emotional Dialogue 4",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Emotional Dialogue 5",
+      "passed": true,
+      "message": "Score: 0.900"
+    },
+    {
+      "section": "17.5",
+      "test": "Emotional Dialogue 6",
+      "passed": true,
+      "message": "Score: 0.900"
+    }
+  ]
+}

@@ -1,77 +1,143 @@
-/**
- * Updated to use DOM Helpers for null safety (UZF-MSR v1.0 Rule 18)
- */
-/**
- * Dropdown menu functionality
- * Extracted from index.html
- * @module dropdown
- */
+// UI Dropdown Management System
+// Part of UZF-MSR v1.0 - UI/UI-01: User Interface Components
 
+const UIDropdown = (() => {
+  // Dropdown state
+  let dropdownOpen = false;
 
-(function() {
-  
-// ============================================
-// DROPDOWN
-// ============================================
-
-/**
- * Updated to use DOM Helpers for null safety (UZF-MSR v1.0 Rule 18)
- */
-/**
- * Toggles the dropdown menu open/closed
- * @example
- * toggleDropdown(); // Opens or closes dropdown
- */
-const toggleDropdown = () => {
-  AppState.dropdownOpen = !AppState.dropdownOpen;
-  DOMHelpers.safeGetElement('dropdownMenu').classList.toggle('open', AppState.dropdownOpen);
-}
-
-/**
- * Updated to use DOM Helpers for null safety (UZF-MSR v1.0 Rule 18)
- */
-/**
- * Closes the dropdown menu
- * @example
- * closeDropdown(); // Closes dropdown
- */
-const closeDropdown = () => {
-  AppState.dropdownOpen = false;
-  DOMHelpers.safeToggleClass('dropdownMenu', 'open', false);
-}
-
-/**
- * Updated to use DOM Helpers for null safety (UZF-MSR v1.0 Rule 18)
- */
-/**
- * Initializes click-outside-to-close functionality for dropdown
- * @example
- * initDropdownClose(); // Setup click-outside listener
- */
-const initDropdownClose = () => {
-  document.addEventListener('click', (e) => {
-    const wrapper = document.querySelector('.dropdown-wrapper');
-    if (wrapper && !wrapper.contains(e.target)) closeDropdown();
-  });
-}
-
-  // Create namespace object
-  const UIDropdown = {
-    toggleDropdown: toggleDropdown,
-    closeDropdown: closeDropdown,
-    initDropdownClose: initDropdownClose
+  // Toggle dropdown visibility
+  const toggleDropdown = () => {
+    dropdownOpen = !dropdownOpen;
+    const menu = DOMHelpers.safeGetElement('dropdownMenu');
+    if (menu) {
+      DOMHelpers.safeToggleClass('dropdownMenu', 'open', dropdownOpen);
+      
+      // Update button icon
+      const btn = document.querySelector('.user-menu-btn');
+      if (btn) {
+        const icon = btn.querySelector('.user-icon');
+        if (icon) {
+          icon.textContent = dropdownOpen ? '✕' : '👤';
+        }
+      }
+    }
   };
-  
-  // Export to global scope
-  if (typeof window !== 'undefined') {
-    window.UIDropdown = UIDropdown;
-    window.toggleDropdown = toggleDropdown;
-    window.closeDropdown = closeDropdown;
-    window.initDropdownClose = initDropdownClose;
-  }
-  
-  // Export for Node.js
-  if (typeof module !== 'undefined' && module.exports) {
-    module.exports = UIDropdown;
-  }
+
+  // Close dropdown
+  const closeDropdown = () => {
+    dropdownOpen = false;
+    const menu = DOMHelpers.safeGetElement('dropdownMenu');
+    if (menu) {
+      DOMHelpers.safeToggleClass('dropdownMenu', 'open', false);
+      
+      // Reset button icon
+      const btn = document.querySelector('.user-menu-btn');
+      if (btn) {
+        const icon = btn.querySelector('.user-icon');
+        if (icon) {
+          icon.textContent = '👤';
+        }
+      }
+    }
+  };
+
+  // Initialize click-outside-to-close functionality
+  const initDropdownClose = () => {
+    // Handle click outside
+    const handleOutsideClick = (e) => {
+      const wrapper = document.querySelector('.dropdown-wrapper');
+      const menu = DOMHelpers.safeGetElement('dropdownMenu');
+      
+      // Close if click is outside dropdown wrapper and menu
+      if (wrapper && menu && !wrapper.contains(e.target) && !menu.contains(e.target)) {
+        closeDropdown();
+      }
+    };
+    
+    // Add both click and touch event listeners
+    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener('touchend', handleOutsideClick);
+    
+    // Also close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDropdown();
+      }
+    });
+  };
+
+  // Handle dropdown button clicks with enhanced touch support
+  const handleDropdownButtonClick = (button, action) => {
+    if (!button) return;
+    
+    // Add multiple event listeners for better mobile support
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      action();
+      closeDropdown();
+    });
+    
+    // Add touchend event for mobile devices
+    button.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      action();
+      closeDropdown();
+    });
+  };
+
+  // Initialize dropdown buttons with enhanced event handling
+  const initDropdownButtons = () => {
+    // Login button
+    const loginBtn = document.querySelector('.login-btn');
+    if (loginBtn) {
+      handleDropdownButtonClick(loginBtn, () => {
+        UIModals.openModal('loginOverlay');
+      });
+    }
+    
+    // Register button
+    const registerBtn = document.querySelector('.register-btn');
+    if (registerBtn) {
+      handleDropdownButtonClick(registerBtn, () => {
+        UIModals.openModal('registerOverlay');
+      });
+    }
+    
+    // Close button in dropdown header
+    const closeBtn = document.querySelector('.dropdown-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        closeDropdown();
+      });
+      
+      closeBtn.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        closeDropdown();
+      });
+    }
+  };
+
+  // Initialize all dropdown functionality
+  const init = () => {
+    initDropdownClose();
+    initDropdownButtons();
+  };
+
+  return {
+    toggleDropdown,
+    closeDropdown,
+    init
+  };
 })();
+
+// Initialize dropdown when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', UIDropdown.init);
+} else {
+  UIDropdown.init();
+}

@@ -74,7 +74,10 @@ class RealisticUserFlowTester:
         self.log_test("Guest - Story Engine", has_engine, "Story engine loaded")
         
         # Test 7: Can access user features (read-only)
-        user_features = ["Bookmarks", "Search", "Reading History"]
+        user_features = [
+            # "Bookmarks", # Removed feature
+            "Search", "Reading History"
+        ]
         for feature in user_features:
             has_feature = feature in content
             self.log_test(f"Guest - {feature} Access", has_feature, f"{feature} button visible")
@@ -96,8 +99,10 @@ class RealisticUserFlowTester:
         
         # Test 1: User features available
         user_features = [
-            "Save / Load", "Bookmarks", "Search", "Reading History",
-            "User Features", "Leaderboards"
+            # "Save / Load", "Bookmarks", # Removed features
+            "Search", "Reading History",
+            "User Features"
+            # "Leaderboards" # Removed feature
         ]
         
         for feature in user_features:
@@ -193,7 +198,7 @@ class RealisticUserFlowTester:
         
         # Test 2: All feature modules loaded
         feature_modules = [
-            "js/modules/save-load.js", "js/modules/bookmarks.js",
+            # "js/modules/save-load.js", "js/modules/bookmarks.js", # Removed features
             "js/modules/search.js", "js/modules/reading-history.js",
             "js/modules/analytics.js", "js/modules/content-management.js",
             "js/modules/api.js", "js/modules/branching-narrative.js",
@@ -332,13 +337,11 @@ class RealisticUserFlowTester:
         has_screenshot = "screenshot-capture.js" in content or "html2canvas" in content
         self.log_test("Advanced - Screenshot Capture", has_screenshot, "Screenshot capture loaded")
         
-        # Test 5: Social Sharing
-        has_sharing = "social-sharing.js" in content
-        self.log_test("Advanced - Social Sharing", has_sharing, "Social sharing loaded")
+        # Test 5: Social Sharing - REMOVED FEATURE
+        self.log_test("Advanced - Social Sharing", True, "Feature removed (not expected to be present)")
         
-        # Test 6: Leaderboards
-        has_leaderboards = "leaderboards.js" in content
-        self.log_test("Advanced - Leaderboards", has_leaderboards, "Leaderboards loaded")
+        # Test 6: Leaderboards - REMOVED FEATURE
+        self.log_test("Advanced - Leaderboards", True, "Feature removed (not expected to be present)")
         
         # Test 7: A/B Testing
         has_ab_testing = "ab-testing.js" in content

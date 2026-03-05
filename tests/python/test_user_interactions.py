@@ -51,10 +51,13 @@ class UserInteractionTester:
         
         # Check for menu items
         menu_items = [
-            "Login", "Register", "Save/Load", "Bookmarks", 
+            "Login", "Register",
+            # "Save/Load", "Bookmarks", # Removed features
             "Search", "Reading History", "Analytics", 
             "Content Management", "User Features", "Notifications",
-            "Backup", "Leaderboards", "A/B Testing"
+            "Backup",
+            # "Leaderboards", # Removed feature
+            "A/B Testing"
         ]
         
         for item in menu_items:
@@ -71,10 +74,13 @@ class UserInteractionTester:
             return False
             
         modals = [
-            "loginOverlay", "registerOverlay", "saveLoadModal",
-            "bookmarksModal", "searchModal", "readingHistoryModal",
+            "loginOverlay", "registerOverlay", 
+            # "saveLoadModal", # Removed feature
+            # "bookmarksModal", # Removed feature
+            "searchModal", "readingHistoryModal",
             "analyticsModal", "contentManagementModal", "userFeaturesModal",
-            "notificationsModal", "backupModal", "leaderboardsModal",
+            "notificationsModal", "backupModal", 
+            # "leaderboardsModal", # Removed feature
             "abTestingModal"
         ]
         
@@ -121,14 +127,17 @@ class UserInteractionTester:
             "story-engine.js", "backstory-engine.js",
             "js/utils/security.js", "js/utils/storage.js",
             "js/modules/auth.js", "js/modules/navigation.js",
-            "js/modules/save-load.js", "js/modules/bookmarks.js",
+            # "js/modules/save-load.js", # Removed feature
+            # "js/modules/bookmarks.js", # Removed feature
             "js/modules/search.js", "js/modules/reading-history.js",
             "js/modules/analytics.js", "js/modules/content-management.js",
             "js/modules/api.js", "js/modules/branching-narrative.js",
             "js/modules/dynamic-content.js", "js/modules/backup.js",
             "js/modules/fuzzy-search.js", "js/modules/screenshot-capture.js",
-            "js/modules/social-sharing.js", "js/modules/performance-advanced.js",
-            "js/modules/ab-testing.js", "js/modules/leaderboards.js"
+            # "js/modules/social-sharing.js", # Removed feature
+            "js/modules/performance-advanced.js",
+            "js/modules/ab-testing.js"
+            # "js/modules/leaderboards.js" # Removed feature
         ]
         
         all_loaded = True
@@ -148,8 +157,10 @@ class UserInteractionTester:
             
         css_files = [
             "styles.css", "css/backup.css", "css/fuzzy-search.css",
-            "css/screenshot.css", "css/leaderboards.css",
-            "css/social-sharing.css", "css/performance-advanced.css",
+            "css/screenshot.css",
+            # "css/leaderboards.css", # Removed feature
+            # "css/social-sharing.css", # Removed feature
+            "css/performance-advanced.css",
             "css/ab-testing.css"
         ]
         
@@ -211,14 +222,14 @@ class UserInteractionTester:
             return False
             
         user_features = [
-            ("Save/Load", "Save/Load"),
-            ("Bookmarks", "Bookmarks"),
+            # ("Save/Load", "Save/Load"), # Removed feature
+            # ("Bookmarks", "Bookmarks"), # Removed feature
             ("Search", "Search"),
             ("Reading History", "Reading History"),
             ("User Profiles", "User Features"),
             ("Achievements", "Achievements"),
-            ("Social Features", "Social"),
-            ("Leaderboards", "Leaderboards")
+            # ("Social Features", "Social"), # Removed feature
+            # ("Leaderboards", "Leaderboards") # Removed feature
         ]
         
         all_present = True

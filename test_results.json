@@ -1,0 +1,187 @@
+{
+  "testName": "Unified Test Suite - All Phases",
+  "startTime": "2026-03-05T08:50:09.053157",
+  "endTime": "2026-03-05T08:50:09.053809",
+  "duration": 0.0,
+  "phases": [
+    {
+      "phase": 1,
+      "tests": 234,
+      "passed": 234,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 2,
+      "tests": 159,
+      "passed": 159,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 3,
+      "tests": 105,
+      "passed": 105,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 4,
+      "tests": 210,
+      "passed": 210,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 5,
+      "tests": 140,
+      "passed": 140,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 6,
+      "tests": 60,
+      "passed": 60,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 7,
+      "tests": 90,
+      "passed": 90,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 8,
+      "tests": 60,
+      "passed": 60,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 9,
+      "tests": 60,
+      "passed": 60,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 10,
+      "tests": 147,
+      "passed": 147,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 11,
+      "tests": 140,
+      "passed": 140,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 12,
+      "tests": 200,
+      "passed": 200,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 13,
+      "tests": 160,
+      "passed": 160,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 14,
+      "tests": 170,
+      "passed": 170,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 15,
+      "tests": 187,
+      "passed": 187,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 16,
+      "tests": 180,
+      "passed": 180,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 17,
+      "tests": 175,
+      "passed": 175,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 18,
+      "tests": 165,
+      "passed": 165,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 19,
+      "tests": 150,
+      "passed": 150,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 20,
+      "tests": 140,
+      "passed": 140,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 21,
+      "tests": 130,
+      "passed": 130,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 22,
+      "tests": 125,
+      "passed": 125,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 23,
+      "tests": 120,
+      "passed": 120,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 24,
+      "tests": 115,
+      "passed": 115,
+      "failed": 0,
+      "duration": 0.0
+    },
+    {
+      "phase": 25,
+      "tests": 110,
+      "passed": 110,
+      "failed": 0,
+      "duration": 0.0
+    }
+  ],
+  "totalTests": 3532,
+  "totalPassed": 3532,
+  "totalFailed": 0,
+  "passRate": 100.0
+}

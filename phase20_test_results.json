@@ -8,37 +8,37 @@
       "section": "20.1",
       "test": "Signup Process 1",
       "passed": true,
-      "message": "User user_1772526577 onboarded successfully"
+      "message": "User user_1772700320 onboarded successfully"
     },
     {
       "section": "20.1",
       "test": "Signup Process 2",
       "passed": true,
-      "message": "User user_1772526577 onboarded successfully"
+      "message": "User user_1772700320 onboarded successfully"
     },
     {
       "section": "20.1",
       "test": "Signup Process 3",
       "passed": true,
-      "message": "User user_1772526577 onboarded successfully"
+      "message": "User user_1772700320 onboarded successfully"
     },
     {
       "section": "20.1",
       "test": "Signup Process 4",
       "passed": true,
-      "message": "User user_1772526577 onboarded successfully"
+      "message": "User user_1772700320 onboarded successfully"
     },
     {
       "section": "20.1",
       "test": "Signup Process 5",
       "passed": true,
-      "message": "User user_1772526577 onboarded successfully"
+      "message": "User user_1772700320 onboarded successfully"
     },
     {
       "section": "20.1",
       "test": "Signup Process 6",
       "passed": true,
-      "message": "User user_1772526577 onboarded successfully"
+      "message": "User user_1772700320 onboarded successfully"
     },
     {
       "section": "20.1",
@@ -176,19 +176,19 @@
       "section": "20.2",
       "test": "Daily Reading 1",
       "passed": true,
-      "message": "Activities in 7 days: 26"
+      "message": "Activities in 7 days: 23"
     },
     {
       "section": "20.2",
       "test": "Daily Reading 2",
       "passed": true,
-      "message": "Activities in 7 days: 27"
+      "message": "Activities in 7 days: 28"
     },
     {
       "section": "20.2",
       "test": "Daily Reading 3",
       "passed": true,
-      "message": "Activities in 7 days: 27"
+      "message": "Activities in 7 days: 25"
     },
     {
       "section": "20.2",
@@ -200,49 +200,49 @@
       "section": "20.2",
       "test": "Daily Reading 5",
       "passed": true,
-      "message": "Activities in 7 days: 26"
+      "message": "Activities in 7 days: 28"
     },
     {
       "section": "20.2",
       "test": "Daily Reading 6",
       "passed": true,
-      "message": "Activities in 7 days: 26"
+      "message": "Activities in 7 days: 29"
     },
     {
       "section": "20.2",
       "test": "Weekly Engagement 1",
       "passed": true,
-      "message": "Avg daily: 3.7"
+      "message": "Avg daily: 4.0"
     },
     {
       "section": "20.2",
       "test": "Weekly Engagement 2",
       "passed": true,
-      "message": "Avg daily: 3.1"
+      "message": "Avg daily: 4.0"
     },
     {
       "section": "20.2",
       "test": "Weekly Engagement 3",
       "passed": true,
-      "message": "Avg daily: 3.4"
+      "message": "Avg daily: 3.1"
     },
     {
       "section": "20.2",
       "test": "Weekly Engagement 4",
       "passed": true,
-      "message": "Avg daily: 3.0"
+      "message": "Avg daily: 3.4"
     },
     {
       "section": "20.2",
       "test": "Weekly Engagement 5",
       "passed": true,
-      "message": "Avg daily: 3.6"
+      "message": "Avg daily: 3.3"
     },
     {
       "section": "20.2",
       "test": "Weekly Engagement 6",
       "passed": true,
-      "message": "Avg daily: 4.0"
+      "message": "Avg daily: 4.4"
     },
     {
       "section": "20.2",
@@ -284,37 +284,37 @@
       "section": "20.2",
       "test": "Feature Usage Patterns 1",
       "passed": true,
-      "message": "Features used: 53 times"
+      "message": "Features used: 46 times"
     },
     {
       "section": "20.2",
       "test": "Feature Usage Patterns 2",
       "passed": true,
-      "message": "Features used: 49 times"
+      "message": "Features used: 54 times"
     },
     {
       "section": "20.2",
       "test": "Feature Usage Patterns 3",
       "passed": true,
-      "message": "Features used: 46 times"
+      "message": "Features used: 50 times"
     },
     {
       "section": "20.2",
       "test": "Feature Usage Patterns 4",
       "passed": true,
-      "message": "Features used: 47 times"
+      "message": "Features used: 53 times"
     },
     {
       "section": "20.2",
       "test": "Feature Usage Patterns 5",
       "passed": true,
-      "message": "Features used: 40 times"
+      "message": "Features used: 42 times"
     },
     {
       "section": "20.2",
       "test": "Feature Usage Patterns 6",
       "passed": true,
-      "message": "Features used: 51 times"
+      "message": "Features used: 48 times"
     },
     {
       "section": "20.2",

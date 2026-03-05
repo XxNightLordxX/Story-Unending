@@ -3,7 +3,7 @@
   "passed_tests": 187,
   "failed_tests": 0,
   "pass_rate": 100.0,
-  "execution_time": 0.001146554946899414,
+  "execution_time": 0.001127004623413086,
   "results": [
     {
       "section": "15.1",
@@ -609,19 +609,19 @@
       "section": "15.5",
       "test": "Variety Distribution 1",
       "passed": true,
-      "message": "Even distribution: True (range: 19-24)"
+      "message": "Even distribution: True (range: 19-25)"
     },
     {
       "section": "15.5",
       "test": "Variety Distribution 2",
       "passed": true,
-      "message": "Even distribution: True (range: 19-24)"
+      "message": "Even distribution: True (range: 19-25)"
     },
     {
       "section": "15.5",
       "test": "Variety Distribution 3",
       "passed": true,
-      "message": "Even distribution: True (range: 19-24)"
+      "message": "Even distribution: True (range: 19-25)"
     },
     {
       "section": "15.6",
@@ -663,37 +663,37 @@
       "section": "15.6",
       "test": "Template Randomization 1",
       "passed": true,
-      "message": "Selected template 12"
+      "message": "Selected template 8"
     },
     {
       "section": "15.6",
       "test": "Template Randomization 2",
       "passed": true,
-      "message": "Selected template 18"
+      "message": "Selected template 22"
     },
     {
       "section": "15.6",
       "test": "Template Randomization 3",
       "passed": true,
-      "message": "Selected template 17"
+      "message": "Selected template 15"
     },
     {
       "section": "15.6",
       "test": "Template Variety in Use 1",
       "passed": true,
-      "message": "Variety ratio: 90%"
+      "message": "Variety ratio: 80%"
     },
     {
       "section": "15.6",
       "test": "Template Variety in Use 2",
       "passed": true,
-      "message": "Variety ratio: 90%"
+      "message": "Variety ratio: 80%"
     },
     {
       "section": "15.6",
       "test": "Template Variety in Use 3",
       "passed": true,
-      "message": "Variety ratio: 90%"
+      "message": "Variety ratio: 80%"
     },
     {
       "section": "15.6",
@@ -735,19 +735,19 @@
       "section": "15.6",
       "test": "Template Combination 1",
       "passed": true,
-      "message": "Template combination: 5+7"
+      "message": "Template combination: 2+8"
     },
     {
       "section": "15.6",
       "test": "Template Combination 2",
       "passed": true,
-      "message": "Template combination: 7+0"
+      "message": "Template combination: 4+7"
     },
     {
       "section": "15.6",
       "test": "Template Combination 3",
       "passed": true,
-      "message": "Template combination: 0+9"
+      "message": "Template combination: 0+3"
     },
     {
       "section": "15.7",
@@ -861,19 +861,19 @@
       "section": "15.7",
       "test": "Sentence Variety in Paragraphs 1",
       "passed": true,
-      "message": "Average 10.2 sentences per paragraph"
+      "message": "Average 8.4 sentences per paragraph"
     },
     {
       "section": "15.7",
       "test": "Sentence Variety in Paragraphs 2",
       "passed": true,
-      "message": "Average 10.2 sentences per paragraph"
+      "message": "Average 8.4 sentences per paragraph"
     },
     {
       "section": "15.7",
       "test": "Sentence Variety in Paragraphs 3",
       "passed": true,
-      "message": "Average 10.2 sentences per paragraph"
+      "message": "Average 8.4 sentences per paragraph"
     },
     {
       "section": "15.8",

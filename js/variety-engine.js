@@ -510,6 +510,33 @@ class VarietyEngine {
     this.fingerprintCounter = data.fingerprintCounter;
     this.similarityThreshold = data.similarityThreshold;
   }
+
+  /**
+   * Check if content is semantically duplicate (alias for isSemanticallySimilar)
+   */
+  isSemanticallyDuplicate(text, existingFingerprints = null) {
+    return this.isSemanticallySimilar(text, existingFingerprints);
+  }
+
+  /**
+   * Calculate semantic similarity between two texts
+   */
+  calculateSemanticSimilarity(text1, text2) {
+    const fp1 = this.generateSemanticFingerprint(text1);
+    const fp2 = this.generateSemanticFingerprint(text2);
+    return this.calculateSimilarity(fp1, fp2);
+  }
+
+  /**
+   * Get fingerprint history
+   */
+  getFingerprintHistory() {
+    return {
+      fingerprints: Array.from(this.semanticFingerprints.entries()),
+      count: this.semanticFingerprints.size,
+      lastUpdated: new Date().toISOString()
+    };
+  }
 }
 
 // Export for use in other modules

@@ -38,14 +38,18 @@
       <div class="dropdown-wrapper">
         <button class="menu-toggle-btn" id="menuToggle" onclick="UIDropdown.toggleDropdown()" aria-label="Open menu">⚙️</button>
         <div class="dropdown-menu" id="dropdownMenu">
+          <div class="dropdown-header">
+            <span class="dropdown-header-title">Menu</span>
+            <button class="dropdown-close-btn" aria-label="Close menu" type="button">✕</button>
+          </div>
 
           <!-- Auth: Logged Out -->
           <div class="dropdown-section" id="dropdownAuthSection">
             <div class="dropdown-section-title">Account</div>
-            <button aria-label="Open Modal" class="dropdown-btn purple-btn" onclick="UIModals.openModal('loginOverlay'); UIDropdown.closeDropdown();">
+            <button aria-label="Open Modal" class="dropdown-btn purple-btn login-btn" type="button">
               <span class="dropdown-btn-icon">🔑</span><span class="dropdown-btn-text">Login</span>
             </button>
-            <button class="dropdown-btn green-btn" onclick="UIModals.openModal('registerOverlay'); UIDropdown.closeDropdown();" aria-label="Open login dialog">
+            <button class="dropdown-btn green-btn register-btn" aria-label="Open login dialog" type="button">
               <span class="dropdown-btn-icon">📝</span><span class="dropdown-btn-text">Register</span>
             </button>
           </div>
